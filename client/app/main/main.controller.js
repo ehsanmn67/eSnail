@@ -1,9 +1,7 @@
 'use strict';
 
 angular.module('eSnailApp')
-  .controller('MainController', function ($scope, $http, FileUploader) {
-    $scope.uploader = new FileUploader();
-    
+  .controller('MainController', function ($scope, $http) {
     $scope.awesomeThings = [];
 
     $http.get('/api/things').success(function(awesomeThings) {
