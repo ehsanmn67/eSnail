@@ -2,5 +2,7 @@
 
 angular.module('eSnailApp')
   .controller('AppController', function ($scope, FileUploader) {
-    $scope.uploader = new FileUploader();
+    $scope.uploader = new FileUploader({
+    	url: '/upload/file'
+    });
   });
