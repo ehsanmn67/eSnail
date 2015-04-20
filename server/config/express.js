@@ -33,7 +33,7 @@ module.exports = function(app) {
   app.use(multer({ 
     dest: config.root + '/server/upload/tempUploads/',
     rename: function (fieldname, filename) {
-      return 'sample';
+      return 'temp';
     }
   }));
   app.use(methodOverride());

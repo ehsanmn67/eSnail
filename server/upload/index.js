@@ -28,7 +28,7 @@ router.post('/', function (req, res) {
 				ACL: 'public-read'
 			}
 		},
-	uploader = client.uploadFile(params);
+		uploader = client.uploadFile(params);
 
 	uploader.on('error', function (err) {
 		console.log('Unable to upload:', err.stack);
