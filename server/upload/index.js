@@ -5,6 +5,7 @@ var express = require('express'),
 	router = express.Router();
 
 var fs = require('fs');
+var pdfutils = require('pdfutils').pdfutils;
 
 /* Configure s3 */
 var s3 = require('s3'),
@@ -17,7 +18,13 @@ var s3 = require('s3'),
 
 /* Handle user request */
 router.post('/', function (req, res) {
-	var filePath = req.files.file.path; 
+	var filePath = req.files.file.path,
+		fileLength;
+	
+	/* Determine number of pages in PDF document */
+	pdfutils(filePath, function (err, doc) {
+		fileLength = doc.length;
+	});
 
 	/* Send s3 put object */
 	var params = {
