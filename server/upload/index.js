@@ -4,64 +4,45 @@
 var express = require('express'),
 	router = express.Router();
 
-
 var fs = require('fs');
 
-var AWS = require('aws-sdk');
-AWS.config.region = 'us-west-1';
+/* Configure s3 */
+var s3 = require('s3'),
+	client = s3.createClient({
+	s3Options: {
+		accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+		secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+	}
+});
 
 /* Handle user request */
 router.post('/', function (req, res) {
-	// var s3 = new AWS.S3();
-	if (req.busboy) {
-	    req.busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
-	    	console.log(fieldname);
-	    	console.log(file);
-	    	console.log(filename);
-	    });
-	}
-	// console.log(req.files);
-	// var options = {
-	// 	ACL: 'public-read',
-	// 	Bucket: 'esnail',
-	// 	Key: 'nativeAWS',
-	// 	Body: buffer,
-	// 	ContentType: 'application/pdf'
-	// };
+	var filePath = req.files.file.path; 
 
+	/* Send s3 put object */
+	var params = {
+			localFile: filePath,
+			s3Params: {
+				Bucket: 'esnail',
+				Key: 'sample',
+				ACL: 'public-read'
+			}
+		},
+	uploader = client.uploadFile(params);
 
-	// s3.upload(options, function (err, data) {
-	// 	console.log(err, data);
-	// });
+	uploader.on('error', function (err) {
+		console.log('Unable to upload:', err.stack);
+	});
 
-	// s3.putObject(options, function (err, data) {
-		// console.log(data);
-	// });
+	uploader.on('end', function() {
+		console.log("done uploading");
 
-	// var body = fs.createReadStream(buffer).pipe(zlib.createGzip());
-	// var s3obj = new AWS.S3({params: {Bucket: 'esnail', Key: 'aws-sdk'}});
-	// s3obj.upload({Body: body}).
-		// on('httpUploadProgress', function(evt) { console.log(evt); }).
-		// send(function(err, data) { console.log(err, data) });
-	// newS3.put('/newS3File', buffer, function (err, s3response, body) {
-	// 	console.log('ERR', err);
-	// 	console.log('RESPONSE', s3response);
-	// 	console.log('BODY', body);
-	// });
-	// console.log(__dirname + '/../../client/assets/images/pdf.icon.png');
-		// localFile: __dirname + '/../../client/assets/images/pdf.icon.png',
-	/* Init upload of client file */
-	// var uploader = client.uploadFile({
-	// 	s3Params: {
-	// 		Bucket: 'esnail',
-	// 		Key: 'Sample2',
-	// 		Body: buffer
-	// 	}
-	// });
-	/* Log when upload complete */
-	// uploader.on('end', function() {
-		// console.log('done uploading');
-	// });
+		fs.unlink(filePath, function (err) {
+			if (err) throw err;
+			console.log('Successfully deleted', req.files.file.name);
+		});
+	});
+
 	/* End request-response cycle */
 	res.end();
 });
