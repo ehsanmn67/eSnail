@@ -31,18 +31,26 @@
     }
 }
 
-.my-drop-zone { 
-    border: dotted 3px lightgray; 
+#user-file-select {
+    position: absolute;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+    cursor: pointer;
 }
 
 .nv-file-over { 
-    border: dotted 3px red;
+    border: dotted 4px red;
 }
 
 /* User Files Table */
 .user-files-table {
+    position: relative;
     // margin:0px;
-    margin: 0 auto;
+    margin: 20px auto;
+    margin-top: 40px;
     padding:0px;
     // width:100%;
     width: 65%;
@@ -106,27 +114,6 @@
 }.user-files-table tr:last-child td:last-child{
     border-width:0px 0px 0px 0px;
 }
-// .user-files-table tr:first-child td{
-//     background:-o-linear-gradient(bottom, #cccccc 5%, #cccccc 100%);    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #cccccc), color-stop(1, #cccccc) );
-//     background:-moz-linear-gradient( center top, #cccccc 5%, #cccccc 100% );
-//     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#cccccc", endColorstr="#cccccc");  background: -o-linear-gradient(top,#cccccc,cccccc);
-
-//     background-color:#cccccc;
-//     border:0px solid #0f0e0e;
-//     text-align:center;
-//     border-width:0px 0px 1px 1px;
-//     font-size:14px;
-//     font-family:Helvetica;
-//     font-weight:normal;
-//     color:#000000;
-// }
-// .user-files-table tr:first-child:hover td{
-//     background:-o-linear-gradient(bottom, #cccccc 5%, #cccccc 100%);    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #cccccc), color-stop(1, #cccccc) );
-//     background:-moz-linear-gradient( center top, #cccccc 5%, #cccccc 100% );
-//     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#cccccc", endColorstr="#cccccc");  background: -o-linear-gradient(top,#cccccc,cccccc);
-
-//     background-color:#cccccc;
-// }
 .user-files-table tr:first-child td:first-child{
     border-width:0px 0px 1px 0px;
 }
@@ -140,6 +127,19 @@
     &:hover {
         opacity: 0.6;
     }
+}
+
+#user-file-instructions {
+    position: absolute;
+    color: black;
+    bottom: 0;
+    text-align: center;
+    width: 300px;
+    left: 50%;
+    margin-left: -150px;
+    line-height: 35px;
+    font-size: 21px;
+    pointer-events: none;
 }
 
 .footer {
@@ -332,7 +332,6 @@
 .contact .envelope .paper {
         position: absolute;
         height: 83*4px;
-        padding-top: 10*4px;
         width: 100%;
         top: 0px;
         left: 0px;

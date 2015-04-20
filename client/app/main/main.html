@@ -25,19 +25,21 @@
                 <div class="left"></div>
                 <div class="right"></div>
                 <div class="cover"></div>
-                <div class="paper">
-                <div class="user-files-table">
-                  <table id="user-files-table">
-                    <tr ng-repeat="item in uploader.queue">
-                      <td>{{ $index + 1 }}</td>
-                      <td>{{ item.file.name }}</td>
-                      <td>{{ item.file.size/1024/1024|number:2 }} MB</td>
-                      <td>
-                        <span ng-click="item.remove()" class="icon ion-ios-close-outline remove-file"></span>
-                      </td>
-                    </tr>
-                  </table>
-                </div>
+                <div class="paper" nv-file-over="" uploader="uploader">
+                  <input id="user-file-select" type="file" nv-file-select="" uploader="uploader" multiple  />
+                  <div class="user-files-table">
+                    <table id="user-files-table">
+                      <tr ng-repeat="item in uploader.queue">
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ item.file.name }}</td>
+                        <td>{{ item.file.size/1024/1024|number:2 }} MB</td>
+                        <td>
+                          <span ng-click="item.remove()" class="icon ion-ios-close-outline remove-file"></span>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <h3 id="user-file-instructions">Drag and Drop or Click to Upload files</h3>
                 </div>
               </div>
             </div>
@@ -47,7 +49,7 @@
       </div>
     </div>
 
-    <form action="/payment" method="POST">
+    <form id="stripe-form" action="/payment" method="POST">
       <script
         src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="pk_test_2UCngl2Ftoz1VmwIZN8JMZQa"
@@ -56,7 +58,7 @@
         data-description="1 Page, Domestic ($3.49)"
         data-image="assets/images/yeoman.png">
       </script>
-  </form>
+    </form>
   </div>
 </header>
 
