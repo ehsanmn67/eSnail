@@ -30,6 +30,52 @@
     <!-- Add your site or application content here -->
     <div ui-view=""></div>
 
+
+    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+      <div class="flipper">
+        <div class="front">
+          <!-- front content -->
+
+          Address
+        
+
+
+
+        </div>
+        <div class="back">
+        <!-- back content -->
+
+        <div id="bg"></div>
+<div class="contact">
+  <div class="envelope">
+    <div class="top">
+      <div class="outer"><div class="inner"></div></div>
+    </div>
+    <div class="bottom"></div>
+    <div class="left"></div>
+    <div class="right"></div>
+    <div class="cover"></div>
+    <div class="paper">
+      <a class="call" >Upload Files</a>
+    </div>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <form action="/payment" method="POST">
+      <script
+        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="pk_test_2UCngl2Ftoz1VmwIZN8JMZQa"
+        data-amount="349"
+        data-name="Send a Letter"
+        data-description="1 Page, Domestic ($3.49)"
+        data-image="assets/images/yeoman.png">
+      </script>
+  </form>
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
