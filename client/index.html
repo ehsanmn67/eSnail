@@ -23,59 +23,13 @@
       <!-- endinjector -->
     <!-- endbuild -->
   </head>
-  <body class="my-drop-zone" ng-app="eSnailApp" ng-controller="AppController" nv-file-drop="" nv-file-over="" uploader="uploader">
+  <body ng-app="eSnailApp" ng-controller="AppController">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
     <div ui-view=""></div>
-
-
-    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-      <div class="flipper">
-        <div class="front">
-          <!-- front content -->
-
-          Address
-        
-
-
-
-        </div>
-        <div class="back">
-        <!-- back content -->
-
-        <div id="bg"></div>
-<div class="contact">
-  <div class="envelope">
-    <div class="top">
-      <div class="outer"><div class="inner"></div></div>
-    </div>
-    <div class="bottom"></div>
-    <div class="left"></div>
-    <div class="right"></div>
-    <div class="cover"></div>
-    <div class="paper">
-      <a class="call" >Upload Files</a>
-    </div>
-  </div>
-</div>
-
-        </div>
-      </div>
-    </div>
-
-    <form action="/payment" method="POST">
-      <script
-        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="pk_test_2UCngl2Ftoz1VmwIZN8JMZQa"
-        data-amount="349"
-        data-name="Send a Letter"
-        data-description="1 Page, Domestic ($3.49)"
-        data-image="assets/images/yeoman.png">
-      </script>
-  </form>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -103,6 +57,7 @@
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
       <script src="bower_components/dropzone/dist/min/dropzone.min.js"></script>
+      <script src="bower_components/angular-file-upload/angular-file-upload.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
 

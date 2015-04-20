@@ -1,5 +1,8 @@
 'use strict';
 
 angular.module('eSnailApp')
-  .controller('AppController', function ($scope) {
+  .controller('AppController', function ($scope, FileUploader) {
+  	$scope.uploader = new FileUploader({
+  		url: '/upload/file'
+  	});
   });

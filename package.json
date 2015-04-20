@@ -5,8 +5,10 @@
   "dependencies": {
     "aws-sdk": "^2.1.24",
     "body-parser": "~1.5.0",
+    "busboy": "^0.2.9",
     "composable-middleware": "^0.3.0",
     "compression": "~1.0.1",
+    "connect-busboy": "0.0.2",
     "connect-mongo": "^0.4.1",
     "cookie-parser": "~1.0.1",
     "ejs": "~0.8.4",

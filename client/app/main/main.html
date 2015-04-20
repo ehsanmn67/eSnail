@@ -4,19 +4,48 @@
     <h1>eSnail</h1>
     <p class="lead">Send your mail, hands-free</p>
     <i class="mail-icon icon ion-paper-airplane"></i>
-    <ul>
-      <li ng-repeat="item in uploader.queue">
-        {{ item.file.name }} 
-        <div image-preview="{ file: item._file, height: 100 }"></div>
-        {{ item.file.size/1024/1024|number:2 }} MB
-        <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
-            <span class="icon ion-paper-airplane"></span> Upload
-        </button>
-      </li>
-    </ul>
-    <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
-        <span class="icon ion-paper-airplane"></span> Upload all
-    </button>
+
+    <div class='row'>
+      <div class='col-lg-8 col-lg-offset-2'>
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+          <div class="flipper">
+            <div class="front">
+              <!-- front content -->
+              Address
+            </div>
+            <div class="back">
+            <!-- back content -->
+            <div id="bg"></div>
+            <div class="contact">
+              <div class="envelope">
+                <div class="top">
+                  <div class="outer"><div class="inner"></div></div>
+                </div>
+                <div class="bottom"></div>
+                <div class="left"></div>
+                <div class="right"></div>
+                <div class="cover"></div>
+                <div id="user-files" class="paper">
+                  <a class="call" >Upload Files</a>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form action="/payment" method="POST">
+      <script
+        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="pk_test_2UCngl2Ftoz1VmwIZN8JMZQa"
+        data-amount="349"
+        data-name="Send a Letter"
+        data-description="1 Page, Domestic ($3.49)"
+        data-image="assets/images/yeoman.png">
+      </script>
+  </form>
   </div>
 </header>
 
@@ -31,8 +60,8 @@
   </div>
 </div> -->
 
-<footer class="footer">
+<!-- <footer class="footer">
   <div class="container">
       <p>eSnail &copy; 2015</p>
   </div>
-</footer>
+</footer> -->

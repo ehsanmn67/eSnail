@@ -4,6 +4,7 @@
 var express = require('express'),
 	router = express.Router();
 
+
 var fs = require('fs');
 
 var AWS = require('aws-sdk');
@@ -11,15 +12,23 @@ AWS.config.region = 'us-west-1';
 
 /* Handle user request */
 router.post('/', function (req, res) {
-	var s3 = new AWS.S3();
+	// var s3 = new AWS.S3();
+	if (req.busboy) {
+	    req.busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
+	    	console.log(fieldname);
+	    	console.log(file);
+	    	console.log(filename);
+	    });
+	}
+	// console.log(req.files);
+	// var options = {
+	// 	ACL: 'public-read',
+	// 	Bucket: 'esnail',
+	// 	Key: 'nativeAWS',
+	// 	Body: buffer,
+	// 	ContentType: 'application/pdf'
+	// };
 
-	var options = {
-		ACL: 'public-read',
-		Bucket: 'esnail',
-		Key: 'nativeAWS',
-		Body: buffer,
-		ContentType: 'application/pdf'
-	};
 
 	// s3.upload(options, function (err, data) {
 	// 	console.log(err, data);

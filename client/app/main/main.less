@@ -12,14 +12,6 @@
     letter-spacing: -1px;
 }
 
-.my-drop-zone { 
-    border: dotted 3px lightgray; 
-}
-
-.nv-file-over { 
-    border: dotted 3px red;
-}
-
 .hero-unit {
     position: relative;
     min-height: 99%;
@@ -50,15 +42,16 @@
 }
 
 
-/* FLIPPIMG STUFF*/
+/* FLIPPING STUFF*/
 /* entire container, keeps perspective */
 .flip-container {
     perspective: 1000;
 }
-    /* flip the pane when hovered */
-    .flip-container:hover .flipper, .flip-container.hover .flipper {
-        transform: rotateY(180deg);
-    }
+
+/* flip the pane when hovered */
+// .flip-container:hover .flipper, .flip-container.hover .flipper {
+//     transform: rotateY(180deg);
+// }
 
 .flip-container, .front, .back {
     width: 165*4px;
@@ -86,23 +79,19 @@
 .front {
     z-index: 2;
     /* for firefox 31 */
-    transform: rotateY(0deg);
+    transform: rotateY(180deg);
     background-color:  #333;
 }
 
 /* back, initially hidden pane */
 .back {
-    transform: rotateY(180deg);
+    transform: rotateY(0deg);
     background-color:  #333;
 }
 
-.flip-container:hover .flipper, .flip-container.hover .flipper, .flip-container.flip .flipper {
-    transform: rotateY(180deg);
-}
-
-
-
-
+// .flip-container:hover .flipper, .flip-container.hover .flipper, .flip-container.flip .flipper {
+//     transform: rotateY(180deg);
+// }
 
 .contact {
         position: absolute;
@@ -132,7 +121,8 @@
         -o-transition: margin-top 300ms;
         -webkit-transition: margin-top 300ms;
 }
-.contact:hover .envelope {
+/* Removed .contact:hover */
+.envelope {
         transition-delay: 150ms;
         -ms-transition-delay: 150ms;
         -moz-transition-delay: 150ms;
@@ -145,7 +135,7 @@
         left: 0px;
         width: 100%;
         height: 73*4px;
-        z-index: 30;
+        z-index: 0;
         overflow: hidden;
                         
         transform-origin: top;
@@ -160,7 +150,8 @@
         -o-transition: -o-transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
         -webkit-transition: -webkit-transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
 }
-.contact:hover .envelope .top {
+/* Removed .contact:hover */
+.envelope .top {
         transition: transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
         -ms-transition: -ms-transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
         -moz-transition: -moz-transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
@@ -242,7 +233,8 @@
         -o-transition: margin-top 300ms 0ms;
         -webkit-transition: margin-top 300ms 0ms;
 }
-.contact:hover .envelope .paper {
+/* Removed .contact:hover */
+.envelope .paper {
         margin-top: -60*4px;
         transition: margin-top 300ms 150ms;
         -ms-transition: margin-top 300ms 150ms;
