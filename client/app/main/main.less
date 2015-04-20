@@ -48,3 +48,269 @@
     text-align: center;
     border-top: 1px solid #E5E5E5;
 }
+
+
+/* FLIPPIMG STUFF*/
+/* entire container, keeps perspective */
+.flip-container {
+    perspective: 1000;
+}
+    /* flip the pane when hovered */
+    .flip-container:hover .flipper, .flip-container.hover .flipper {
+        transform: rotateY(180deg);
+    }
+
+.flip-container, .front, .back {
+    width: 165*4px;
+    height: 93*4px;
+}
+
+/* flip speed goes here */
+.flipper {
+    transition: 1.5s;
+    transform-style: preserve-3d;
+
+    position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+    backface-visibility: hidden;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+    background-color:  #333;
+}
+
+/* back, initially hidden pane */
+.back {
+    transform: rotateY(180deg);
+    background-color:  #333;
+}
+
+.flip-container:hover .flipper, .flip-container.hover .flipper, .flip-container.flip .flipper {
+    transform: rotateY(180deg);
+}
+
+
+
+
+
+.contact {
+        position: absolute;
+        height: 93*4px;
+        width: 165*4px;
+        background: rgba(0, 0, 0, 0.1);
+        
+        border-radius: 2*4px;
+        -ms-border-radius: 2*4px;
+        -moz-border-radius: 2*4px;
+        -o-border-radius: 2*4px;
+        -webkit-border-radius: 2*4px;
+}
+.contact .envelope {
+        position: absolute;
+        height: 93*4px;
+        width: 165*4px;
+        left: 50%;
+        margin-left: -82.5*4px;
+        top: 50%;
+        margin-top: -46.5*4px;
+        background: #F9F9F9;
+        
+        transition: margin-top 300ms;
+        -ms-transition: margin-top 300ms;
+        -moz-transition: margin-top 300ms;
+        -o-transition: margin-top 300ms;
+        -webkit-transition: margin-top 300ms;
+}
+.contact:hover .envelope {
+        transition-delay: 150ms;
+        -ms-transition-delay: 150ms;
+        -moz-transition-delay: 150ms;
+        -o-transition-delay: 150ms;
+        margin-top: -20*4px;
+}
+.contact .envelope .top {
+        position: absolute;
+        top: -11px;
+        left: 0px;
+        width: 100%;
+        height: 73*4px;
+        z-index: 30;
+        overflow: hidden;
+                        
+        transform-origin: top;
+        -ms-transform-origin: top;
+        -moz-transform-origin: top;
+        -o-transform-origin: top;
+        -webkit-transform-origin: top;
+                    
+        transition: transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
+        -ms-transition: -ms-transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
+        -moz-transition: -moz-transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
+        -o-transition: -o-transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
+        -webkit-transition: -webkit-transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
+}
+.contact:hover .envelope .top {
+        transition: transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
+        -ms-transition: -ms-transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
+        -moz-transition: -moz-transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
+        -o-transition: -o-transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
+        -webkit-transition: -webkit-transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
+        
+        height: 10*4px;
+        top: -60*4px;
+        
+        transform: rotateX(180deg);
+        -ms-transform: rotateX(180deg);
+        -moz-transform: rotateX(180deg);
+        -o-transform: rotateX(180deg);
+        -webkit-transform: rotateX(180deg);
+}
+.contact .envelope .outer {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        border-left: 83*4px solid transparent;
+        border-right: 82*4px solid transparent;
+        border-top: 70*4px solid #EEE;
+}
+.contact .envelope .outer .inner {
+        position: absolute;
+        left: -81*4px;
+        top: -73*4px;
+        border-left: 81*4px solid transparent;
+        border-right: 80*4px solid transparent;
+        border-top: 68*4px solid #333;
+}
+.contact .envelope .bottom {
+        position: absolute;
+        z-index: 20;
+        bottom: 0*4px;
+        left: 2*4px;
+        border-left: 81*4px solid transparent;
+        border-right: 80*4px solid transparent;
+        border-bottom: 45*4px solid #333;
+}
+.contact .envelope .left {
+        position: absolute;
+        z-index: 20; top: 0*4px;
+        left: 0px;
+        border-left: 81*4px solid #333;
+        border-top: 45*4px solid transparent;
+        border-bottom: 45*4px solid transparent;
+}
+.contact .envelope .right {
+        position: absolute;
+        z-index: 20;
+        top: 0*4px;
+        right: 0*4px;
+        border-right: 80*4px solid #333;
+        border-top: 45*4px solid transparent;
+        border-bottom: 45*4px solid transparent;
+}
+.contact .envelope .cover {
+        position: absolute;
+        z-index: 15;
+        bottom: 0px;
+        left: 0px;
+        height: 55%;
+        width: 100%;
+        background: #EEE;
+}
+.contact .envelope .paper {
+        position: absolute;
+        height: 83*4px;
+        padding-top: 10*4px;
+        width: 100%;
+        top: 0px;
+        left: 0px;
+        background: #F9F9F9;
+        z-index: 10;
+        transition: margin-top 300ms 0ms;
+        -ms-transition: margin-top 300ms 0ms;
+        -moz-transition: margin-top 300ms 0ms;
+        -o-transition: margin-top 300ms 0ms;
+        -webkit-transition: margin-top 300ms 0ms;
+}
+.contact:hover .envelope .paper {
+        margin-top: -60*4px;
+        transition: margin-top 300ms 150ms;
+        -ms-transition: margin-top 300ms 150ms;
+        -moz-transition: margin-top 300ms 150ms;
+        -o-transition: margin-top 300ms 150ms;
+        -webkit-transition: margin-top 300ms 150ms;
+}
+.contact .envelope .paper a {
+        position: relative;
+        display: block;
+        font-size: 14*4px;
+        margin: 5*4px;
+        margin-bottom: 0px;
+        text-align: center;
+        color: #333;
+        text-decoration: none;
+}
+.contact .envelope .paper a.call .i {
+        position: absolute;
+        top: 2*4px;
+        left: 20*4px;
+        display: inline-block;
+        width: 3*4px;
+        height: 5*4px;
+        border-width: 5*4px 0 5*4px 2*4px;
+        border-style: solid;
+        border-color: #555;
+        background: transparent;
+        
+        transform: rotate(-30deg);
+        -ms-transform: rotate(-30deg);
+        -moz-transform: rotate(-30deg);
+        -o-transform: rotate(-30deg);
+        -webkit-transform: rotate(-30deg);
+
+        border-top-left-radius: 3px 5px;
+        border-bottom-left-radius: 3px 5px;
+        -moz-border-radius-topleft: 3px 5px;
+        -moz-border-radius-bottomleft: 3px 5px;
+        -webkit-border-top-left-radius: 3px 5px;
+        -webkit-border-bottom-left-radius: 3px 5px;
+                                                                                                                                                
+        transition: border-color 300ms;
+        -ms-transition: border-color 300ms;
+        -moz-transition: border-color 300ms;
+        -o-transition: border-color 300ms;
+        -webkit-transition: border-color 300ms;
+}
+.contact .envelope .paper a {
+        color: #333;
+
+        transition: color 200ms;
+        -ms-transition: color 200ms;
+        -moz-transition: color 200ms;
+        -o-transition: color 200ms;
+        -webkit-transition: color 200ms;
+}
+.contact .envelope .paper a:hover {
+        color: #EEE;
+}
+.contact .envelope .paper a.call:hover .i {
+        border-color: #DDD;
+}
+.contact .envelope .paper a.mail .i {
+        position: absolute;
+        top: 0px;
+        left: 17*4px;
+        display: inline-block;
+        font-size: 13*4px;
+        font-weight: bold;
+}
