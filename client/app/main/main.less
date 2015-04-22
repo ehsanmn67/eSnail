@@ -2,6 +2,33 @@
   margin: 20px 0;
 }
 
+.navbar {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-bottom: none;
+
+    a {
+        color: #FFF !important;
+
+        &:hover {
+            opacity: 0.5 !important;
+        }
+    }
+}
+
+#accordian-menu {
+    position: absolute;
+    right: 0;
+    left: 50%;
+    margin-top: 285px;
+    margin-left: -60px;
+    width: 70%;
+    color: black;
+
+    .panel {
+        cursor: pointer;
+    }
+}
+
 #banner {
     border-bottom: none;
 }
@@ -12,13 +39,17 @@
     letter-spacing: -1px;
 }
 
+#initProcess {
+    position: absolute;
+    right: 0;
+}
+
 .hero-unit {
     position: relative;
     min-height: 99%;
     padding: 30px 15px;
     color: #F5F5F5;
     text-align: center;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
 
     .mail-icon {
         font-size: 8em;
@@ -165,6 +196,7 @@
 // }
 
 .flip-container, .front, .back {
+    margin-top: 150px;
     width: 165*4px;
     height: 93*4px;
 }
@@ -246,7 +278,8 @@
         left: 0px;
         width: 100%;
         height: 73*4px;
-        z-index: 0;
+        z-index: 100;
+        // z-index: 0;
         overflow: hidden;
                         
         transform-origin: top;
@@ -262,7 +295,7 @@
         -webkit-transition: -webkit-transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
 }
 /* Removed .contact:hover */
-.envelope .top {
+.envelope .top.open {
         transition: transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
         -ms-transition: -ms-transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
         -moz-transition: -moz-transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
@@ -271,7 +304,8 @@
         
         height: 10*4px;
         top: -60*4px;
-        
+        z-index: 0;
+
         transform: rotateX(180deg);
         -ms-transform: rotateX(180deg);
         -moz-transform: rotateX(180deg);
@@ -344,7 +378,7 @@
         -webkit-transition: margin-top 300ms 0ms;
 }
 /* Removed .contact:hover */
-.envelope .paper {
+.envelope .paper.open {
         margin-top: -60*4px;
         transition: margin-top 300ms 150ms;
         -ms-transition: margin-top 300ms 150ms;

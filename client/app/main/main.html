@@ -1,12 +1,8 @@
-<!-- <div ng-include="'components/navbar/navbar.html'"></div> -->
-<header class="hero-unit" id="banner">
+<div ng-include="'components/navbar/navbar.html'"></div>
+<!-- <header class="hero-unit" id="banner"> -->
   <div class="container">
-    <h1>eSnail</h1>
-    <p class="lead">Send your mail, hands-free</p>
-    <i class="mail-icon icon ion-paper-airplane"></i>
-
-    <div class='row'>
-      <div class='col-lg-8 col-lg-offset-2'>
+    <div class="row">
+      <div class="col-md-4">
         <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
           <div class="flipper">
             <div class="front">
@@ -47,20 +43,34 @@
           </div>
         </div>
       </div>
+      <div class="col-md-8">
+        <button id="initProcess" class="btn btn-lg" ng-click="initProcess()">Start</button>
+        <div id="accordian-menu">
+          <accordion close-others="true">
+            <accordion-group heading="Documents" is-open="status.isFirstOpen">
+              This content is straight in the template.
+            </accordion-group>
+            <accordion-group heading="Address">
+              This content is straight in the template.
+            </accordion-group>
+            <accordion-group heading="Payment">
+              <form id="stripe-form" action="/payment" method="POST">
+                <script
+                  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="pk_test_2UCngl2Ftoz1VmwIZN8JMZQa"
+                  data-amount="349"
+                  data-name="Send a Letter"
+                  data-description="1 Page, Domestic ($3.49)"
+                  data-image="assets/images/yeoman.png">
+                </script>
+              </form>
+            </accordion-group>
+          </accordion>
+        </div>
+      </div>
     </div>
-
-    <form id="stripe-form" action="/payment" method="POST">
-      <script
-        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="pk_test_2UCngl2Ftoz1VmwIZN8JMZQa"
-        data-amount="349"
-        data-name="Send a Letter"
-        data-description="1 Page, Domestic ($3.49)"
-        data-image="assets/images/yeoman.png">
-      </script>
-    </form>
   </div>
-</header>
+<!-- </header> -->
 
 <!--   <div class="container">
   <div class="row">

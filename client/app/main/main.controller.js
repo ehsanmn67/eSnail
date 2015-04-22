@@ -1,22 +1,33 @@
 'use strict';
 
 angular.module('eSnailApp')
-    .controller('MainController', function ($scope, $http) {
-        $scope.awesomeThings = [];
+    .controller('MainController', function ($scope, $http, $timeout) {
+        $scope.status = {
+            isFirstOpen: false
+        };
 
-        $http.get('/api/things').success(function(awesomeThings) {
-            $scope.awesomeThings = awesomeThings;
-        });
+        $scope.initProcess = function() {
+            $scope.status.isFirstOpen = true;
+
+            $('.envelope .top').addClass('open');
+            $('.envelope .paper').addClass('open');
+        };
+
+        // $scope.awesomeThings = [];
+        // $http.get('/api/things').success(function(awesomeThings) {
+            // $scope.awesomeThings = awesomeThings;
+        // });
                 
-        $scope.addThing = function() {
-            if($scope.newThing === '') {
-                return;
-            }
-            $http.post('/api/things', { name: $scope.newThing });
-            $scope.newThing = '';
-        };
+        // $scope.addThing = function() {
+        //     if($scope.newThing === '') {
+        //         return;
+        //     }
+        //     $http.post('/api/things', { name: $scope.newThing });
+        //     $scope.newThing = '';
+        // };
 
-        $scope.deleteThing = function(thing) {
-            $http.delete('/api/things/' + thing._id);
-        };
+        // $scope.deleteThing = function(thing) {
+        //     $http.delete('/api/things/' + thing._id);
+        // };
+
     });
