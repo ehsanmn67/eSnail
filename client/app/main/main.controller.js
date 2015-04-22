@@ -2,6 +2,33 @@
 
 angular.module('eSnailApp')
     .controller('MainController', function ($scope, $http, $timeout) {
+        
+        $('.stamp-options-container')
+            .on('mouseenter', function() {
+                $(this).stop().fadeIn();
+            })
+            .on('mouseleave', function() {
+                $(this).stop().fadeOut();
+            });
+
+        $('.stamp-placeholder')
+            .on('mouseenter', function() {
+                $('.stamp-options-container').stop().fadeIn();
+            })
+            .on('mouseleave', function() {
+                $('.stamp-options-container').stop().fadeOut();
+            });
+
+        $('#stamp-container').on('click', '.stamp-image', function() {
+            var type = $(this).attr('data-type');
+
+            $('.stamp-options-container').stop().fadeOut();
+            $('.stamp-placeholder-text').html('');
+            $('.stamp-selected-image').attr('src', '/assets/images/ironman_stamp.png');
+            $('.stamp-selected-image').attr('data-type', type);
+        });
+
+
         $scope.status = {
             firstOpen: false,
             secondOpen: false,

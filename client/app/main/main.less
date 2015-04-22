@@ -75,6 +75,7 @@
 
     &:focus {
        outline: none;
+       border-bottom: 1px dotted #e66e24;
     }
 }
 
@@ -114,14 +115,66 @@
         height: 100px;
         background: #FFF;
         cursor: pointer;
+
+        .stamp-selected-image {
+            position: absolute;
+            margin-left: -25px;
+            margin-top: -20px;
+        }
     }
 
     .stamp-placeholder-text {
         position: absolute;
         bottom: 0;
         margin-bottom: 30%;
+        font-size: 16px;
         text-align: center;
         pointer-events: none;
+    }
+}
+
+.stamp-options-container {
+    display: none;
+
+    .stamp-options-body {
+        width: 600px;
+        height: 200px;
+        position: absolute;
+        padding: 0px 40px;
+        background: #FFF;
+        top: -235px;
+        margin-left: -250px;
+        border-radius: 10px; 
+        background-color: rgba(255, 255, 255, 0.8);
+
+        .stamp-option {
+            position: relative;
+            display: inline-block;
+            padding: 10px;
+            text-align: center;
+
+            .stamp-image {
+                cursor: pointer;
+
+                &:hover {
+                    border: 1px solid #e66e24;
+                }
+            }    
+
+            .stamp-title {
+                font-size: 18px;
+            }
+        }
+    }
+
+    .stamp-options-tail { 
+        position: absolute;
+        top: -35px;
+        width: 0;
+        height: 0px;
+        border-top: 30px solid rgba(255, 255, 255, 0.8);
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
     }
 }
 
