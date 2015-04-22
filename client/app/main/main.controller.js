@@ -16,15 +16,6 @@ angular.module('eSnailApp')
             $('.envelope .paper').addClass('open');
         };
 
-        $scope.prepareEnvelopeAddress = function() {
-            $scope.status.secondOpen = true;
-
-            $('.flipper').addClass('flip');
-            // $('.envelope').removeClass('open');
-            $('.envelope .top').removeClass('open');
-            $('.envelope .paper').removeClass('open');
-        };
-
         $scope.prepareEnvelopeDocuments = function() {
             $scope.status.firstOpen = true;
 
@@ -32,6 +23,26 @@ angular.module('eSnailApp')
             // $('.envelope').addClass('open');
             $('.envelope .top').addClass('open');
             $('.envelope .paper').addClass('open');
+        };
+
+        $scope.prepareEnvelopeAddress = function() {
+            $scope.status.secondOpen = true;
+
+            $('.flipper').addClass('flip');
+            // $('.envelope').removeClass('open');
+            $('.envelope .top').removeClass('open');
+            $('.envelope .paper').removeClass('open');
+            $('#user-name').focus();
+        };
+
+        $scope.preparePayment = function () {
+            $scope.status.thirdOpen = true;
+
+            $('.flipper').addClass('flip');
+            // $('.envelope').removeClass('open');
+            $('.envelope .top').removeClass('open');
+            $('.envelope .paper').removeClass('open');
+            $('#user-name').focus();
         };
 
         // $scope.awesomeThings = [];

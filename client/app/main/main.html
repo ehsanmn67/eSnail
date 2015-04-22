@@ -7,7 +7,31 @@
           <div class="flipper">
             <div class="front">
               <!-- front content -->
-              Address
+              <div id="stamp-container">
+                <div class="stamp-placeholder">
+                  <p class="stamp-placeholder-text">Place stamp here</p>
+                </div>
+              </div>
+              <div id="to-form-container">
+                <h4>TO</h4>
+                <form id="to-form">
+                  <input type="text" name="toName" id="user-name" class="address-form-control" placeholder="Full Name" />
+                  <input type="text" name="toStreet" class="address-form-control" placeholder="Street Address" />
+                  <input type="text" name="toCity" class="address-form-control inline-address city-address" placeholder="City" />
+                  <input type="text" name="toState" class="address-form-control inline-address state-address" placeholder="CA" />
+                  <input type="text" name="toZip" class="address-form-control inline-address zip-address" placeholder="ZIP" />
+                </form>
+              </div>
+              <div id="from-form-container">
+                <h4>FROM</h4>
+                <form id="from-form">
+                  <input type="text" name="fromName" id="user-name" class="address-form-control" placeholder="Full Name" />
+                  <input type="text" name="fromStreet" class="address-form-control" placeholder="Street Address" />
+                  <input type="text" name="fromCity" class="address-form-control inline-address city-address" placeholder="City" />
+                  <input type="text" name="fromState" class="address-form-control inline-address state-address" placeholder="CA" />
+                  <input type="text" name="fromZip" class="address-form-control inline-address zip-address" placeholder="ZIP" />
+                </form>
+              </div>
             </div>
             <div class="back">
             <!-- back content -->
@@ -53,7 +77,7 @@
             <accordion-group heading="Address" is-open="status.secondOpen" ng-click="prepareEnvelopeAddress()">
               This content is straight in the template.
             </accordion-group>
-            <accordion-group heading="Payment" is-open="status.thirdOpen">
+            <accordion-group heading="Payment" is-open="status.thirdOpen" ng-click="preparePayment()">
               <form id="stripe-form" action="/payment" method="POST">
                 <script
                   src="https://checkout.stripe.com/checkout.js" class="stripe-button"

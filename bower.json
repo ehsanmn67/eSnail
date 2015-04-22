@@ -15,7 +15,6 @@
     "lodash": "~2.4.1",
     "angular-ui-router": "~0.2.10",
     "ionicons": "~2.0.1",
-    "dropzone": "~4.0.1",
     "angular-file-upload": "~1.1.5"
   },
   "devDependencies": {
