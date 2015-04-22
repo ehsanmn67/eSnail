@@ -191,12 +191,13 @@
 }
 
 /* flip the pane when hovered */
+.flipper.flip {
 // .flip-container:hover .flipper, .flip-container.hover .flipper {
-//     transform: rotateY(180deg);
-// }
+    transform: rotateY(180deg);
+}
 
 .flip-container, .front, .back {
-    margin-top: 150px;
+    margin-top: 140px;
     width: 165*4px;
     height: 93*4px;
 }
@@ -265,12 +266,13 @@
         -webkit-transition: margin-top 300ms;
 }
 /* Removed .contact:hover */
-.envelope {
+.envelope.open {
+        margin-top: -20*4px;
+
         transition-delay: 150ms;
         -ms-transition-delay: 150ms;
         -moz-transition-delay: 150ms;
         -o-transition-delay: 150ms;
-        margin-top: -20*4px;
 }
 .contact .envelope .top {
         position: absolute;
@@ -385,68 +387,4 @@
         -moz-transition: margin-top 300ms 150ms;
         -o-transition: margin-top 300ms 150ms;
         -webkit-transition: margin-top 300ms 150ms;
-}
-.contact .envelope .paper a {
-        position: relative;
-        display: block;
-        font-size: 14*4px;
-        margin: 5*4px;
-        margin-bottom: 0px;
-        text-align: center;
-        color: #333;
-        text-decoration: none;
-}
-.contact .envelope .paper a.call .i {
-        position: absolute;
-        top: 2*4px;
-        left: 20*4px;
-        display: inline-block;
-        width: 3*4px;
-        height: 5*4px;
-        border-width: 5*4px 0 5*4px 2*4px;
-        border-style: solid;
-        border-color: #555;
-        background: transparent;
-        
-        transform: rotate(-30deg);
-        -ms-transform: rotate(-30deg);
-        -moz-transform: rotate(-30deg);
-        -o-transform: rotate(-30deg);
-        -webkit-transform: rotate(-30deg);
-
-        border-top-left-radius: 3px 5px;
-        border-bottom-left-radius: 3px 5px;
-        -moz-border-radius-topleft: 3px 5px;
-        -moz-border-radius-bottomleft: 3px 5px;
-        -webkit-border-top-left-radius: 3px 5px;
-        -webkit-border-bottom-left-radius: 3px 5px;
-                                                                                                                                                
-        transition: border-color 300ms;
-        -ms-transition: border-color 300ms;
-        -moz-transition: border-color 300ms;
-        -o-transition: border-color 300ms;
-        -webkit-transition: border-color 300ms;
-}
-.contact .envelope .paper a {
-        color: #333;
-
-        transition: color 200ms;
-        -ms-transition: color 200ms;
-        -moz-transition: color 200ms;
-        -o-transition: color 200ms;
-        -webkit-transition: color 200ms;
-}
-.contact .envelope .paper a:hover {
-        color: #EEE;
-}
-.contact .envelope .paper a.call:hover .i {
-        border-color: #DDD;
-}
-.contact .envelope .paper a.mail .i {
-        position: absolute;
-        top: 0px;
-        left: 17*4px;
-        display: inline-block;
-        font-size: 13*4px;
-        font-weight: bold;
 }

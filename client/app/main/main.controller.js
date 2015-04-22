@@ -3,12 +3,33 @@
 angular.module('eSnailApp')
     .controller('MainController', function ($scope, $http, $timeout) {
         $scope.status = {
-            isFirstOpen: false
+            firstOpen: false,
+            secondOpen: false,
+            thirdOpen: false
         };
 
         $scope.initProcess = function() {
-            $scope.status.isFirstOpen = true;
+            $scope.status.firstOpen = true;
 
+            // $('.envelope').addClass('open');
+            $('.envelope .top').addClass('open');
+            $('.envelope .paper').addClass('open');
+        };
+
+        $scope.prepareEnvelopeAddress = function() {
+            $scope.status.secondOpen = true;
+
+            $('.flipper').addClass('flip');
+            // $('.envelope').removeClass('open');
+            $('.envelope .top').removeClass('open');
+            $('.envelope .paper').removeClass('open');
+        };
+
+        $scope.prepareEnvelopeDocuments = function() {
+            $scope.status.firstOpen = true;
+
+            $('.flipper').removeClass('flip');
+            // $('.envelope').addClass('open');
             $('.envelope .top').addClass('open');
             $('.envelope .paper').addClass('open');
         };
