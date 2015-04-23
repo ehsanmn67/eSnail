@@ -25,7 +25,15 @@
     color: black;
 
     .panel {
-        cursor: pointer;
+
+        .panel-heading {
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+
+            .panel-title {
+                font-size: 25px;
+            }
+        }
 
         .accordion-toggle {
             text-decoration: none !important;
@@ -482,7 +490,8 @@
 .contact .envelope .outer .inner {
         position: absolute;
         left: -81*4px;
-        top: -73*4px;
+        top: -281px;
+        // top: -73*4px;
         border-left: 81*4px solid transparent;
         border-right: 80*4px solid transparent;
         border-top: 68*4px solid #333;

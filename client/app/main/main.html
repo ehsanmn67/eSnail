@@ -89,13 +89,13 @@
         <button id="initProcess" class="btn btn-lg" ng-click="initProcess()">Start</button>
         <div id="accordian-menu">
           <accordion close-others="true">
-            <accordion-group heading="Documents" is-open="status.firstOpen"  ng-click="prepareEnvelopeDocuments()">
+            <accordion-group heading="1. Documents" is-open="status.firstOpen"  ng-click="prepareEnvelopeDocuments()">
               This content is straight in the template.
             </accordion-group>
-            <accordion-group heading="Address" is-open="status.secondOpen" ng-click="prepareEnvelopeAddress()">
+            <accordion-group heading="2. Address" is-open="status.secondOpen" ng-click="prepareEnvelopeAddress()">
               This content is straight in the template.
             </accordion-group>
-            <accordion-group heading="Payment" is-open="status.thirdOpen" ng-click="preparePayment()">
+            <accordion-group heading="3. Payment" is-open="status.thirdOpen" ng-click="preparePayment()">
               <form id="stripe-form" action="/payment" method="POST">
                 <script
                   src="https://checkout.stripe.com/checkout.js" class="stripe-button"
