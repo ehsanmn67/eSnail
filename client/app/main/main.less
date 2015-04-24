@@ -25,7 +25,15 @@
     color: black;
 
     .panel {
-        cursor: pointer;
+
+        .panel-heading {
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+
+            .panel-title {
+                font-size: 25px;
+            }
+        }
 
         .accordion-toggle {
             text-decoration: none !important;
@@ -48,7 +56,7 @@
     color: #FFF;
     text-overflow: ellipsis;
     // width: 36%;
-    width: 230px;
+    width: 252px;
 
     &.inline-address {
         display: inline-block;
@@ -62,10 +70,19 @@
     }
 
     &.state-address {
-        width: 27px;
+        width: 50px;
         // width: 4%;
         // margin-right: 1%;
         margin-right: 6px;
+        border: 0;
+        background: transparent;
+        font-size: 14px;
+        color: #FFF;
+        border-bottom: 1px dotted #ced2d8;
+
+        &:focus {
+            outline: 2px auto #ffb84d !important;
+        }
     }
 
     &.zip-address {
@@ -75,10 +92,18 @@
 
     &:focus {
        outline: none;
+       border-bottom: 1px dotted #e66e24;
     }
 }
 
-#to-form-container {
+.hide-appearance {
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none;
+    border-bottom: none;
+}
+
+#from-form-container {
     padding-top: 5px;
     padding-left: 20px;
 
@@ -86,12 +111,12 @@
         color: #FFF;
     }
 
-    #to-form {
+    #from-form {
 
     }
 }
 
-#from-form-container {
+#to-form-container {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -114,14 +139,66 @@
         height: 100px;
         background: #FFF;
         cursor: pointer;
+
+        .stamp-selected-image {
+            position: absolute;
+            margin-left: -25px;
+            margin-top: -20px;
+        }
     }
 
     .stamp-placeholder-text {
         position: absolute;
         bottom: 0;
         margin-bottom: 30%;
+        font-size: 16px;
         text-align: center;
         pointer-events: none;
+    }
+}
+
+.stamp-options-container {
+    display: none;
+
+    .stamp-options-body {
+        width: 600px;
+        height: 200px;
+        position: absolute;
+        padding: 0px 40px;
+        background: #FFF;
+        top: -235px;
+        margin-left: -250px;
+        border-radius: 10px; 
+        background-color: rgba(255, 255, 255, 0.8);
+
+        .stamp-option {
+            position: relative;
+            display: inline-block;
+            padding: 10px;
+            text-align: center;
+
+            .stamp-image {
+                cursor: pointer;
+
+                &:hover {
+                    border: 1px solid #e66e24;
+                }
+            }    
+
+            .stamp-title {
+                font-size: 18px;
+            }
+        }
+    }
+
+    .stamp-options-tail { 
+        position: absolute;
+        top: -35px;
+        width: 0;
+        height: 0px;
+        border-top: 30px solid rgba(255, 255, 255, 0.8);
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
     }
 }
 
@@ -329,12 +406,18 @@
     /* for firefox 31 */
     transform: rotateY(180deg);
     background-color:  #333;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 /* back, initially hidden pane */
 .back {
     transform: rotateY(0deg);
     background-color:  #333;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 // .flip-container:hover .flipper, .flip-container.hover .flipper, .flip-container.flip .flipper {
@@ -362,6 +445,8 @@
         top: 50%;
         margin-top: -46.5*4px;
         background: #F9F9F9;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
         
         transition: margin-top 300ms;
         -ms-transition: margin-top 300ms;
@@ -429,7 +514,8 @@
 .contact .envelope .outer .inner {
         position: absolute;
         left: -81*4px;
-        top: -73*4px;
+        top: -281px;
+        // top: -73*4px;
         border-left: 81*4px solid transparent;
         border-right: 80*4px solid transparent;
         border-top: 68*4px solid #333;
@@ -468,6 +554,8 @@
         height: 55%;
         width: 100%;
         background: #EEE;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
 }
 .contact .envelope .paper {
         position: absolute;
