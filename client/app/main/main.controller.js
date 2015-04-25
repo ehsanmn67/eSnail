@@ -99,6 +99,7 @@ angular.module('eSnailApp')
             $('.address-form-control').addClass('hide-appearance');
             $('.state-address').addClass('hide-appearance');
             $('.state-address').css('border-bottom', 'none');
+            $('.address-header').css('opacity', 0);
 
             /* Disable inputs */
             $('.address-form-control')
@@ -117,6 +118,7 @@ angular.module('eSnailApp')
             $('.address-form-control').removeClass('hide-appearance');
             $('.state-address').removeClass('hide-appearance');
             $('.state-address').css('border-bottom', '1px dotted #ced2d8');
+            $('.address-header').css('opacity', 1);
 
             /* Enable inputs */
             $('.address-form-control').each(function() {
