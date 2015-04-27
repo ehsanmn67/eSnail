@@ -71,10 +71,11 @@ angular.module('eSnailApp')
             $('.state-address').attr('disabled', false);
             $('#user-name').focus();
 
+            /* TEMP */
             /* Attach handlers from stamp container */
-            $('.stamp-placeholder')
-                .bind('mouseenter', showStampOptions)
-                .bind('mouseleave', hideStampOptions);
+            // $('.stamp-placeholder')
+            //     .bind('mouseenter', showStampOptions)
+            //     .bind('mouseleave', hideStampOptions);
             $('.stamp-placeholder').css('cursor', 'pointer');
         }
 
@@ -87,17 +88,19 @@ angular.module('eSnailApp')
         }
         
         /* jQuery Handlers */
-        $('.stamp-placeholder')
-            .bind('mouseenter', showStampOptions)
-            .bind('mouseleave', hideStampOptions);
+        /* TEMP */
+        // $('.stamp-placeholder')
+            // .bind('mouseenter', showStampOptions)
+            // .bind('mouseleave', hideStampOptions);
 
-        $('.stamp-options-container')
-            .on('mouseenter', function() {
-                $(this).stop().fadeIn();
-            })
-            .on('mouseleave', function() {
-                $(this).stop().fadeOut();
-            });
+        /* TEMP */
+        // $('.stamp-options-container')
+        //     .on('mouseenter', function() {
+        //         $(this).stop().fadeIn();
+        //     })
+        //     .on('mouseleave', function() {
+        //         $(this).stop().fadeOut();
+        //     });
 
         $('#stamp-container').on('click', '.stamp-image', function() {
             var type = $(this).attr('data-type');
