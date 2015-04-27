@@ -36,6 +36,10 @@ router.post('/process', function (req, res) {
 	});
 });
 
+router.delete('/process', function (req, res) {
+	deleteTempFiles();
+});
+
 router.post('/upload', function (req, res) {
 	/* Send S3 put object for each file */
 	for (var i = 0; i < files.length; i++) {
@@ -55,16 +59,20 @@ router.post('/upload', function (req, res) {
 		/* If last file, then delete all files in /tempUploads */
 		if ( i == files.length - 1 ) {
 			uploader.on('end', function() {
-				for (var j = 0; j < files.length; j++) {
-					fs.unlink(files[j].path, function (err) {
-						if (err) throw err;
-					});
-				}
+				deleteTempFiles();
 			});
 		}
 	}
 	/* End request-response cycle */
 	res.end();
 });
+
+function deleteTempFiles() {
+	for (var i = 0; i < files.length; i++) {
+		fs.unlink(files[i].path, function (err) {
+			if (err) throw err;
+		});
+	}
+}
 
 module.exports = router;
