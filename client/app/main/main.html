@@ -173,11 +173,12 @@
                   <input id="user-file-select" type="file" nv-file-select="" uploader="uploader" multiple  />
                   <div class="user-files-table">
                     <table id="user-files-table">
-                      <tr ng-repeat="item in uploader.queue">
-                        <td>{{ $index + 1 }}</td>
-                        <td>{{ item.file.name }}</td>
-                        <td>{{ item.file.size/1024/1024|number:2 }} MB</td>
-                        <td>
+                      <tr class="user-file-row" ng-repeat="item in uploader.queue">
+                        <td class="user-file-number">{{ $index + 1 }}</td>
+                        <td class="user-file-name">{{ item.file.name }}</td>
+                        <td id="{{ item.file.name | formatFileName }}" class="user-file-length"></td>
+                        <td class="user-file-size">{{ item.file.size/1024/1024 | number:2 }} MB</td>
+                        <td class="user-file-remove">
                           <span ng-click="item.remove()" class="icon ion-ios-close-outline remove-file"></span>
                         </td>
                       </tr>
@@ -202,6 +203,7 @@
               This content is straight in the template.
             </accordion-group>
             <accordion-group heading="3. Payment" is-open="status.thirdOpen" ng-click="preparePayment()">
+              <button class="btn btn-success" ng-click="uploadToS3()">Upload</button>
               <form id="stripe-form" action="/payment" method="POST">
                 <script
                   src="https://checkout.stripe.com/checkout.js" class="stripe-button"

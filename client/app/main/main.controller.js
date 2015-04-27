@@ -75,6 +75,16 @@ angular.module('eSnailApp')
             formatEnvelope();
         };
 
+        $scope.uploadToS3 = function() {
+            $http.post('/file/upload', { message: 'Upload Files' })
+                .success(function(data) {
+                    console.log('Success Upload');
+                })
+                .error(function(data) {
+                    console.log('Error Upload');
+                });
+        };
+
         var placeholders = [
             {
                 className: 'name-input',

@@ -318,20 +318,32 @@
 }.user-files-table tr:hover td{
     
 }
-.user-files-table tr:nth-child(odd){ background-color:#e5e5e5; }
-.user-files-table tr:nth-child(even)    { background-color:#ffffff; }.user-files-table td{
+.user-files-table tr:nth-child(odd) { 
+    background-color:#e5e5e5; 
+}
+.user-files-table tr:nth-child(even) { 
+    background-color:#ffffff; 
+}
+.user-files-table td {
     vertical-align:middle;
-    text-align:center;
     padding:7px;
     font-size:15px;
     font-family:Helvetica;
     font-weight:normal;
     color:#000000;
-}.user-files-table tr:last-child td{
+    text-align:center;
+
+    &.user-file-name {
+        text-align: left;
+    }
+}
+.user-files-table tr:last-child td {
     border-width:0px 1px 0px 0px;
-}.user-files-table tr td:last-child{
+}
+.user-files-table tr td:last-child{
     border-width:0px 0px 1px 0px;
-}.user-files-table tr:last-child td:last-child{
+}
+.user-files-table tr:last-child td:last-child{
     border-width:0px 0px 0px 0px;
 }
 .user-files-table tr:first-child td:first-child{
@@ -340,6 +352,7 @@
 .user-files-table tr:first-child td:last-child{
     border-width:0px 0px 1px 1px;
 }
+
 .remove-file {
     font-size: 25px;
     cursor: pointer;

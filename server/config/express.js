@@ -28,14 +28,14 @@ module.exports = function(app) {
   app.engine('html', require('ejs').renderFile);
   app.set('view engine', 'html');
   app.use(compression());
-  // app.use(bodyParser.urlencoded({ extended: false }));
-  // app.use(bodyParser.json());
   app.use(multer({ 
-    dest: config.root + '/server/upload/tempUploads/',
+    dest: config.root + '/server/file/tempUploads/',
     rename: function (fieldname, filename) {
-      return 'temp';
+      return filename;
     }
   }));
+  // app.use(bodyParser.urlencoded({ extended: false }));
+  // app.use(bodyParser.json());
   app.use(methodOverride());
   app.use(cookieParser());
   app.use(passport.initialize());
