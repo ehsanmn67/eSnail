@@ -24,6 +24,26 @@ angular.module('eSnailApp')
             $('.stamp-selected-image').attr('data-type', type);
         });
 
+        var handler = StripeCheckout.configure({
+            key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
+            image: '/assets/images/ironman_stamp.png',
+            token: function(token) {
+            // Use the token to create the charge with a server-side script.
+            // You can access the token ID with `token.id`
+            }
+        });
+
+        $('#customButton').on('click', function(e) {
+            console.log('yo');
+            // Open Checkout with further options
+            // handler.open({
+            //     name: 'eSnail',
+            //     description: '2 widgets',
+            //     amount: 2000
+            // });
+            // e.preventDefault();
+        });
+
         function showStampOptions(e) {
             $('.stamp-options-container').stop().fadeIn();
         }
