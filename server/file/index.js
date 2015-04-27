@@ -36,7 +36,12 @@ router.post('/process', function (req, res) {
 	});
 });
 
-router.delete('/process', function (req, res) {
+router.delete('/remove/:fileName', function (req, res) {
+	var fileName = req.params.fileName;
+	deleteTempFiles(fileName);
+});
+
+router.delete('/removeAll', function (req, res) {
 	deleteTempFiles();
 });
 
@@ -67,11 +72,23 @@ router.post('/upload', function (req, res) {
 	res.end();
 });
 
-function deleteTempFiles() {
-	for (var i = 0; i < files.length; i++) {
-		fs.unlink(files[i].path, function (err) {
-			if (err) throw err;
-		});
+function deleteTempFiles(fileName) {
+	if (fileName) {
+		for (var i = 0; i < files.length; i++) {
+			if (files[i].name == fileName) {
+				fs.unlink(files[i].path, function (err) {
+					if (err) throw err;
+				});
+				files.splice(i, 1);
+			}
+		}
+	} else {
+		for (var i = 0; i < files.length; i++) {
+			fs.unlink(files[i].path, function (err) {
+				if (err) throw err;
+			});
+		}
+		files = [];
 	}
 }
 

@@ -9,11 +9,14 @@ angular.module('eSnailApp')
 
   	uploader.onSuccessItem = function(fileItem, res) {
       var filename = res.name.replace(/ /g,'').slice(0, -4),
-      	pageSuffix = ' pgs';
+          fileLength = res.length,
+          pageSuffix = ' pgs';
       
-      if ( res.length == 1 ) {
+      if ( fileLength == 1 ) {
       	pageSuffix = ' pg';
       }
+
+      $scope.$broadcast('pagesAdded', { length: fileLength });
 
       $('#' + filename).html(res.length + pageSuffix);
     }
@@ -25,8 +28,8 @@ angular.module('eSnailApp')
     //   }
     // });
 
-    // $(window).on("unload", function() {
-    //   $http.delete('/file/process');
-    //   uploader.clearQueue();∫
+    // $(window).on('beforeunload', function() {
+    //   $http.delete('/file/removeAll');
+    //   uploader.clearQueue();
     // });
 });
