@@ -103,10 +103,6 @@ angular.module('eSnailApp')
         //         $(this).stop().fadeOut();
         //     });
 
-        $('#steps').slick({
-            dots: true,
-            infinite: false
-        });
 
         $('#stamp-container').on('click', '.stamp-image', function() {
             var type = $(this).attr('data-type');
@@ -126,11 +122,11 @@ angular.module('eSnailApp')
             totalCost += ( pageData.length * 39 );
         });
 
-        $scope.status = {
-            firstOpen: false,
-            secondOpen: false,
-            thirdOpen: false
-        };
+        // $scope.status = {
+            // firstOpen: false,
+            // secondOpen: false,
+            // thirdOpen: false
+        // };
 
         $scope.scrollTo = function(id) {
             $('html, body').animate({
@@ -139,41 +135,77 @@ angular.module('eSnailApp')
         };
 
         $scope.initProcess = function() {
-            $scope.status.firstOpen = true;
+            // $scope.status.firstOpen = true;
 
             // $('.envelope').addClass('open');
             $('.envelope .top').addClass('open');
             $('.envelope .paper').addClass('open');
         };
 
-        $scope.prepareEnvelopeDocuments = function() {
-            $scope.status.firstOpen = true;
+        function prepareEnvelopeDocuments() {
+            // $scope.status.firstOpen = true;
 
             $('.flipper').removeClass('flip');
             // $('.envelope').addClass('open');
-            $('.envelope .top').addClass('open');
-            $('.envelope .paper').addClass('open');
+            // $('.envelope .top').addClass('open');
+            // $('.envelope .paper').addClass('open');
         };
 
-        $scope.prepareEnvelopeAddress = function() {
-            $scope.status.secondOpen = true;
+        function prepareEnvelopeAddress() {
+            // $scope.status.secondOpen = true;
 
             $('.flipper').addClass('flip');
-            // $('.envelope').removeClass('open');
-            $('.envelope .top').removeClass('open');
-            $('.envelope .paper').removeClass('open');
             parseEnvelope();
+            // $('.envelope').removeClass('open');
+            // $('.envelope .top').removeClass('open');
+            // $('.envelope .paper').removeClass('open');
         };
 
-        $scope.preparePayment = function () {
-            $scope.status.thirdOpen = true;
+        function preparePayment() {
+            // $scope.status.thirdOpen = true;
 
             $('.flipper').addClass('flip');
-            // $('.envelope').removeClass('open');
-            $('.envelope .top').removeClass('open');
-            $('.envelope .paper').removeClass('open');
             formatEnvelope();
+            // $('.envelope').removeClass('open');
+            // $('.envelope .top').removeClass('open');
+            // $('.envelope .paper').removeClass('open');
         };
+
+        $('#steps').slick({
+            dots: true,
+            infinite: false
+        });
+
+        $('#steps').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+
+            switch( nextSlide ) {
+                case 0:
+                    prepareEnvelopeDocuments();
+                    $('.pay-container').css('display', 'none');
+                    break; 
+                case 1: 
+                    prepareEnvelopeAddress();
+                    $('.pay-container').css('display', 'none');
+                    break; 
+                case 2:
+                    preparePayment();
+                    $('.pay-container').fadeIn();
+                    break;
+                default:
+                    prepareEnvelopeDocuments();
+                    $('.pay-container').css('display', 'none');
+                    break;
+            }
+
+        });
+
+        $('#steps').on('click', '#stripe-checkout', function() {
+            handler.open({
+                name: 'eSnail',
+                description: '2 widgets',
+                amount: totalCost
+            });
+        });
 
         $scope.stripeCheckout = function() {
             handler.open({
@@ -225,3 +257,4 @@ angular.module('eSnailApp')
         // };
 
     });
+// 

@@ -5,7 +5,7 @@
   <!-- <div class="container"> -->
     <img id="cover-logo" src="/assets/images/logo.png">
     <h2 id="cover-tagline">I use ensail because... I don't keep stamps at home!</h2>
-    <div id="brand-button" ng-click="scrollTo('mail')">
+    <div class="brand-button" ng-click="scrollTo('mail')">
       Get Started
     </div>
   <!-- </div> -->
@@ -174,7 +174,21 @@
           <!-- back content -->
           <div id="bg"></div>
           <div class="contact">
-            <div class="envelope">
+            <div class="envelope" nv-file-over="" uploader="uploader">
+              <input id="user-file-select" type="file" nv-file-select="" uploader="uploader" multiple  />
+              <div class="user-files-table">
+                <table id="user-files-table">
+                  <tr class="user-file-row" ng-repeat="item in uploader.queue">
+                    <td class="user-file-number">{{ $index + 1 }}</td>
+                    <td class="user-file-name">{{ item.file.name }}</td>
+                    <td id="{{ item.file.name | formatFileName }}" class="user-file-length"></td>
+                    <td class="user-file-size">{{ item.file.size/1024/1024 | number:2 }} MB</td>
+                    <td class="user-file-remove">
+                      <span ng-click="removeFile(item)" class="icon ion-ios-close-outline remove-file"></span>
+                    </td>
+                  </tr>
+                </table>
+              </div>
               <div class="top">
                 <div class="outer"><div class="inner"></div></div>
               </div>
@@ -182,22 +196,7 @@
               <div class="left"></div>
               <div class="right"></div>
               <div class="cover"></div>
-              <div class="paper" nv-file-over="" uploader="uploader">
-                <input id="user-file-select" type="file" nv-file-select="" uploader="uploader" multiple  />
-                <div class="user-files-table">
-                  <table id="user-files-table">
-                    <tr class="user-file-row" ng-repeat="item in uploader.queue">
-                      <td class="user-file-number">{{ $index + 1 }}</td>
-                      <td class="user-file-name">{{ item.file.name }}</td>
-                      <td id="{{ item.file.name | formatFileName }}" class="user-file-length"></td>
-                      <td class="user-file-size">{{ item.file.size/1024/1024 | number:2 }} MB</td>
-                      <td class="user-file-remove">
-                        <span ng-click="removeFile(item)" class="icon ion-ios-close-outline remove-file"></span>
-                      </td>
-                    </tr>
-                  </table>
-                </div>
-                <h3 id="user-file-instructions">Drag and Drop or Click to Upload files</h3>
+              <div class="paper">
               </div>
             </div>
           </div>
@@ -208,35 +207,23 @@
 
       <div id="steps">
         <div class="step-container">
-          your content
+          <div class="step-title">Drag and Drop</div>
+          <div class="step-body">Upload your letters as PDF documents. We support multiple files, up to 10 pages (5 sheets) total.</div>
         </div>
         <div class="step-container">
-          your content
+          <div class="step-title">Mailing Info</div>
+          <div class="step-body">Fill in your return and mailing addresses.</div>
         </div>
         <div class="step-container">
-          your content
+          <div class="step-title">Payment Method</div>
+          <!-- <div class="step-body"> -->
+            <!-- Pay with any major credit card! Prices are automatically calculated based on number of pages and your mailing destination. -->
+          <!-- </div> -->
         </div>
       </div>
-
-    </div>
-  </section>
-
-  <section id="instructions">
-    <div class="container">
-      <button id="initProcess" class="btn btn-lg" ng-click="initProcess()">Start</button>
-      <div id="accordian-menu">
-        <accordion close-others="true">
-          <accordion-group heading="1. Documents" is-open="status.firstOpen"  ng-click="prepareEnvelopeDocuments()">
-            This content is straight in the template.
-          </accordion-group>
-          <accordion-group heading="2. Address" is-open="status.secondOpen" ng-click="prepareEnvelopeAddress()">
-            This content is straight in the template.
-          </accordion-group>
-          <accordion-group heading="3. Payment" is-open="status.thirdOpen" ng-click="preparePayment()">
-            <button class="btn btn-success" ng-click="uploadToS3()">Upload</button>
-            <button class="btn btn-default" ng-click="stripeCheckout()">Purchase</button>
-          </accordion-group>
-        </accordion>
+      <div class="pay-container">
+        <div class="brand-button pay-button" ng-click="stripeCheckout()">Pay Now</div>
+        <small class="pay-info">We accept all major credit cards. Prices are automatically calculated based on number of pages.</small>
       </div>
     </div>
   </section>
