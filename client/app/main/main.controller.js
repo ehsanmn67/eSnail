@@ -88,6 +88,7 @@ angular.module('eSnailApp')
         }
         
         /* jQuery Handlers */
+
         /* TEMP */
         // $('.stamp-placeholder')
             // .bind('mouseenter', showStampOptions)
@@ -101,6 +102,11 @@ angular.module('eSnailApp')
         //     .on('mouseleave', function() {
         //         $(this).stop().fadeOut();
         //     });
+
+        $('#steps').slick({
+            dots: true,
+            infinite: false
+        });
 
         $('#stamp-container').on('click', '.stamp-image', function() {
             var type = $(this).attr('data-type');
@@ -124,6 +130,12 @@ angular.module('eSnailApp')
             firstOpen: false,
             secondOpen: false,
             thirdOpen: false
+        };
+
+        $scope.scrollTo = function(id) {
+            $('html, body').animate({
+                scrollTop: $('#' + id).offset().top
+            }, 'slow');
         };
 
         $scope.initProcess = function() {

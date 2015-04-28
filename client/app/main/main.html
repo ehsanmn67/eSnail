@@ -1,216 +1,245 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 <!-- <header class="hero-unit" id="banner"> -->
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-          <div class="flipper">
-            <div class="front">
-              <!-- front content -->
-              <div id="stamp-container">
-                <div class="stamp-options-container">
-                  <div class="stamp-options-body">
-                    <div class="stamp-option">
-                      <img class="stamp-image" src="/assets/images/ironman_stamp.png" width="150" data-type="Express">
-                      <p class="stamp-title">Express (1 day)</p>
-                    </div>
-                    <div class="stamp-option">
-                      <img class="stamp-image" src="/assets/images/ironman_stamp.png" width="150" data-type="Priority">
-                      <p class="stamp-title">Priority (2-3 days)</p>
-                    </div>
-                    <div class="stamp-option">
-                      <img class="stamp-image" src="/assets/images/ironman_stamp.png" width="150" data-type="Standard">
-                      <p class="stamp-title">Standard (5-7 days)</p>
-                    </div>
+<div id="main">
+<section id="home" class="cover">
+  <!-- <div class="container"> -->
+    <img id="cover-logo" src="/assets/images/logo.png">
+    <h2 id="cover-tagline">I use ensail because... I don't keep stamps at home!</h2>
+    <div id="brand-button" ng-click="scrollTo('mail')">
+      Get Started
+    </div>
+  <!-- </div> -->
+</section>
+
+  <section id="mail">
+    <div class="container">
+
+      <!-- Envelope -->
+      <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+        <div class="flipper">
+          <div class="front">
+            <!-- front content -->
+            <div id="stamp-container">
+              <div class="stamp-options-container">
+                <div class="stamp-options-body">
+                  <div class="stamp-option">
+                    <img class="stamp-image" src="/assets/images/ironman_stamp.png" width="150" data-type="Express">
+                    <p class="stamp-title">Express (1 day)</p>
                   </div>
-                  <div class="stamp-options-tail"></div>
-                </div>
-                <div class="stamp-placeholder">
-                  <img class="stamp-selected-image" width="150">
-                  <p class="stamp-placeholder-text">Place stamp here</p>
-                </div>
-              </div>
-              <div id="from-form-container">
-                <h4 class="address-header">FROM</h4>
-                <form id="from-form">
-                  <input type="text" name="fromName" id="user-name" class="address-form-control name-input" placeholder="Full Name" />
-                  <input type="text" name="fromStreet" class="address-form-control street-input" placeholder="Street Address" />
-                  <input type="text" name="fromCity" class="address-form-control inline-address city-address city-input" placeholder="City" />
-                  <select name="fromState" class="address-form-control inline-address state-address">
-                    <option value="">CA</option>
-                    <option value="AL">AL</option>
-                    <option value="AK">AK</option>
-                    <option value="AZ">AZ</option>
-                    <option value="AR">AR</option>
-                    <option value="CA">CA</option>
-                    <option value="CO">CO</option>
-                    <option value="CT">CT</option>
-                    <option value="DE">DE</option>
-                    <option value="DC">DC</option>
-                    <option value="FL">FL</option>
-                    <option value="GA">GA</option>
-                    <option value="HI">HI</option>
-                    <option value="ID">ID</option>
-                    <option value="IL">IL</option>
-                    <option value="IN">IN</option>
-                    <option value="IA">IA</option>
-                    <option value="KS">KS</option>
-                    <option value="KY">KY</option>
-                    <option value="LA">LA</option>
-                    <option value="ME">ME</option>
-                    <option value="MD">MD</option>
-                    <option value="MA">MA</option>
-                    <option value="MI">MI</option>
-                    <option value="MN">MN</option>
-                    <option value="MS">MS</option>
-                    <option value="MO">MO</option>
-                    <option value="MT">MT</option>
-                    <option value="NE">NE</option>
-                    <option value="NV">NV</option>
-                    <option value="NH">NH</option>
-                    <option value="NJ">NJ</option>
-                    <option value="NM">NM</option>
-                    <option value="NY">NY</option>
-                    <option value="NC">NC</option>
-                    <option value="ND">ND</option>
-                    <option value="OH">OH</option>
-                    <option value="OK">OK</option>
-                    <option value="OR">OR</option>
-                    <option value="PA">PA</option>
-                    <option value="RI">RI</option>
-                    <option value="SC">SC</option>
-                    <option value="SD">SD</option>
-                    <option value="TN">TN</option>
-                    <option value="TX">TX</option>
-                    <option value="UT">UT</option>
-                    <option value="VT">VT</option>
-                    <option value="VA">VA</option>
-                    <option value="WA">WA</option>
-                    <option value="WV">WV</option>
-                    <option value="WI">WI</option>
-                    <option value="WY">WY</option>
-                  </select>
-                  <input type="text" name="fromZip" class="address-form-control inline-address zip-address zip-input" placeholder="ZIP" />
-                </form>
-              </div>
-              <div id="to-form-container">
-                <h4 class="address-header">TO</h4>
-                <form id="to-form">
-                  <input type="text" name="toName" id="user-name" class="address-form-control name-input" placeholder="Full Name" />
-                  <input type="text" name="toStreet" class="address-form-control street-input" placeholder="Street Address" />
-                  <input type="text" name="toCity" class="address-form-control inline-address city-address city-input" placeholder="City" />
-                  <select name="toState" class="address-form-control inline-address state-address">
-                    <option value="">CA</option>
-                    <option value="AL">AL</option>
-                    <option value="AK">AK</option>
-                    <option value="AZ">AZ</option>
-                    <option value="AR">AR</option>
-                    <option value="CA">CA</option>
-                    <option value="CO">CO</option>
-                    <option value="CT">CT</option>
-                    <option value="DE">DE</option>
-                    <option value="DC">DC</option>
-                    <option value="FL">FL</option>
-                    <option value="GA">GA</option>
-                    <option value="HI">HI</option>
-                    <option value="ID">ID</option>
-                    <option value="IL">IL</option>
-                    <option value="IN">IN</option>
-                    <option value="IA">IA</option>
-                    <option value="KS">KS</option>
-                    <option value="KY">KY</option>
-                    <option value="LA">LA</option>
-                    <option value="ME">ME</option>
-                    <option value="MD">MD</option>
-                    <option value="MA">MA</option>
-                    <option value="MI">MI</option>
-                    <option value="MN">MN</option>
-                    <option value="MS">MS</option>
-                    <option value="MO">MO</option>
-                    <option value="MT">MT</option>
-                    <option value="NE">NE</option>
-                    <option value="NV">NV</option>
-                    <option value="NH">NH</option>
-                    <option value="NJ">NJ</option>
-                    <option value="NM">NM</option>
-                    <option value="NY">NY</option>
-                    <option value="NC">NC</option>
-                    <option value="ND">ND</option>
-                    <option value="OH">OH</option>
-                    <option value="OK">OK</option>
-                    <option value="OR">OR</option>
-                    <option value="PA">PA</option>
-                    <option value="RI">RI</option>
-                    <option value="SC">SC</option>
-                    <option value="SD">SD</option>
-                    <option value="TN">TN</option>
-                    <option value="TX">TX</option>
-                    <option value="UT">UT</option>
-                    <option value="VT">VT</option>
-                    <option value="VA">VA</option>
-                    <option value="WA">WA</option>
-                    <option value="WV">WV</option>
-                    <option value="WI">WI</option>
-                    <option value="WY">WY</option>
-                  </select>
-                  <input type="text" name="toZip" class="address-form-control inline-address zip-address zip-input" placeholder="ZIP" />
-                </form>
-              </div>
-            </div>
-            <div class="back">
-            <!-- back content -->
-            <div id="bg"></div>
-            <div class="contact">
-              <div class="envelope">
-                <div class="top">
-                  <div class="outer"><div class="inner"></div></div>
-                </div>
-                <div class="bottom"></div>
-                <div class="left"></div>
-                <div class="right"></div>
-                <div class="cover"></div>
-                <div class="paper" nv-file-over="" uploader="uploader">
-                  <input id="user-file-select" type="file" nv-file-select="" uploader="uploader" multiple  />
-                  <div class="user-files-table">
-                    <table id="user-files-table">
-                      <tr class="user-file-row" ng-repeat="item in uploader.queue">
-                        <td class="user-file-number">{{ $index + 1 }}</td>
-                        <td class="user-file-name">{{ item.file.name }}</td>
-                        <td id="{{ item.file.name | formatFileName }}" class="user-file-length"></td>
-                        <td class="user-file-size">{{ item.file.size/1024/1024 | number:2 }} MB</td>
-                        <td class="user-file-remove">
-                          <span ng-click="removeFile(item)" class="icon ion-ios-close-outline remove-file"></span>
-                        </td>
-                      </tr>
-                    </table>
+                  <div class="stamp-option">
+                    <img class="stamp-image" src="/assets/images/ironman_stamp.png" width="150" data-type="Priority">
+                    <p class="stamp-title">Priority (2-3 days)</p>
                   </div>
-                  <h3 id="user-file-instructions">Drag and Drop or Click to Upload files</h3>
+                  <div class="stamp-option">
+                    <img class="stamp-image" src="/assets/images/ironman_stamp.png" width="150" data-type="Standard">
+                    <p class="stamp-title">Standard (5-7 days)</p>
+                  </div>
                 </div>
+                <div class="stamp-options-tail"></div>
+              </div>
+              <div class="stamp-placeholder">
+                <img class="stamp-selected-image" width="150">
+                <p class="stamp-placeholder-text">Place stamp here</p>
               </div>
             </div>
+            <div id="from-form-container">
+              <h4 class="address-header">FROM</h4>
+              <form id="from-form">
+                <input type="text" name="fromName" id="user-name" class="address-form-control name-input" placeholder="Full Name" />
+                <input type="text" name="fromStreet" class="address-form-control street-input" placeholder="Street Address" />
+                <input type="text" name="fromCity" class="address-form-control inline-address city-address city-input" placeholder="City" />
+                <select name="fromState" class="address-form-control inline-address state-address">
+                  <option value="">CA</option>
+                  <option value="AL">AL</option>
+                  <option value="AK">AK</option>
+                  <option value="AZ">AZ</option>
+                  <option value="AR">AR</option>
+                  <option value="CA">CA</option>
+                  <option value="CO">CO</option>
+                  <option value="CT">CT</option>
+                  <option value="DE">DE</option>
+                  <option value="DC">DC</option>
+                  <option value="FL">FL</option>
+                  <option value="GA">GA</option>
+                  <option value="HI">HI</option>
+                  <option value="ID">ID</option>
+                  <option value="IL">IL</option>
+                  <option value="IN">IN</option>
+                  <option value="IA">IA</option>
+                  <option value="KS">KS</option>
+                  <option value="KY">KY</option>
+                  <option value="LA">LA</option>
+                  <option value="ME">ME</option>
+                  <option value="MD">MD</option>
+                  <option value="MA">MA</option>
+                  <option value="MI">MI</option>
+                  <option value="MN">MN</option>
+                  <option value="MS">MS</option>
+                  <option value="MO">MO</option>
+                  <option value="MT">MT</option>
+                  <option value="NE">NE</option>
+                  <option value="NV">NV</option>
+                  <option value="NH">NH</option>
+                  <option value="NJ">NJ</option>
+                  <option value="NM">NM</option>
+                  <option value="NY">NY</option>
+                  <option value="NC">NC</option>
+                  <option value="ND">ND</option>
+                  <option value="OH">OH</option>
+                  <option value="OK">OK</option>
+                  <option value="OR">OR</option>
+                  <option value="PA">PA</option>
+                  <option value="RI">RI</option>
+                  <option value="SC">SC</option>
+                  <option value="SD">SD</option>
+                  <option value="TN">TN</option>
+                  <option value="TX">TX</option>
+                  <option value="UT">UT</option>
+                  <option value="VT">VT</option>
+                  <option value="VA">VA</option>
+                  <option value="WA">WA</option>
+                  <option value="WV">WV</option>
+                  <option value="WI">WI</option>
+                  <option value="WY">WY</option>
+                </select>
+                <input type="text" name="fromZip" class="address-form-control inline-address zip-address zip-input" placeholder="ZIP" />
+              </form>
             </div>
+            <div id="to-form-container">
+              <h4 class="address-header">TO</h4>
+              <form id="to-form">
+                <input type="text" name="toName" id="user-name" class="address-form-control name-input" placeholder="Full Name" />
+                <input type="text" name="toStreet" class="address-form-control street-input" placeholder="Street Address" />
+                <input type="text" name="toCity" class="address-form-control inline-address city-address city-input" placeholder="City" />
+                <select name="toState" class="address-form-control inline-address state-address">
+                  <option value="">CA</option>
+                  <option value="AL">AL</option>
+                  <option value="AK">AK</option>
+                  <option value="AZ">AZ</option>
+                  <option value="AR">AR</option>
+                  <option value="CA">CA</option>
+                  <option value="CO">CO</option>
+                  <option value="CT">CT</option>
+                  <option value="DE">DE</option>
+                  <option value="DC">DC</option>
+                  <option value="FL">FL</option>
+                  <option value="GA">GA</option>
+                  <option value="HI">HI</option>
+                  <option value="ID">ID</option>
+                  <option value="IL">IL</option>
+                  <option value="IN">IN</option>
+                  <option value="IA">IA</option>
+                  <option value="KS">KS</option>
+                  <option value="KY">KY</option>
+                  <option value="LA">LA</option>
+                  <option value="ME">ME</option>
+                  <option value="MD">MD</option>
+                  <option value="MA">MA</option>
+                  <option value="MI">MI</option>
+                  <option value="MN">MN</option>
+                  <option value="MS">MS</option>
+                  <option value="MO">MO</option>
+                  <option value="MT">MT</option>
+                  <option value="NE">NE</option>
+                  <option value="NV">NV</option>
+                  <option value="NH">NH</option>
+                  <option value="NJ">NJ</option>
+                  <option value="NM">NM</option>
+                  <option value="NY">NY</option>
+                  <option value="NC">NC</option>
+                  <option value="ND">ND</option>
+                  <option value="OH">OH</option>
+                  <option value="OK">OK</option>
+                  <option value="OR">OR</option>
+                  <option value="PA">PA</option>
+                  <option value="RI">RI</option>
+                  <option value="SC">SC</option>
+                  <option value="SD">SD</option>
+                  <option value="TN">TN</option>
+                  <option value="TX">TX</option>
+                  <option value="UT">UT</option>
+                  <option value="VT">VT</option>
+                  <option value="VA">VA</option>
+                  <option value="WA">WA</option>
+                  <option value="WV">WV</option>
+                  <option value="WI">WI</option>
+                  <option value="WY">WY</option>
+                </select>
+                <input type="text" name="toZip" class="address-form-control inline-address zip-address zip-input" placeholder="ZIP" />
+              </form>
+            </div>
+          </div>
+          <div class="back">
+          <!-- back content -->
+          <div id="bg"></div>
+          <div class="contact">
+            <div class="envelope">
+              <div class="top">
+                <div class="outer"><div class="inner"></div></div>
+              </div>
+              <div class="bottom"></div>
+              <div class="left"></div>
+              <div class="right"></div>
+              <div class="cover"></div>
+              <div class="paper" nv-file-over="" uploader="uploader">
+                <input id="user-file-select" type="file" nv-file-select="" uploader="uploader" multiple  />
+                <div class="user-files-table">
+                  <table id="user-files-table">
+                    <tr class="user-file-row" ng-repeat="item in uploader.queue">
+                      <td class="user-file-number">{{ $index + 1 }}</td>
+                      <td class="user-file-name">{{ item.file.name }}</td>
+                      <td id="{{ item.file.name | formatFileName }}" class="user-file-length"></td>
+                      <td class="user-file-size">{{ item.file.size/1024/1024 | number:2 }} MB</td>
+                      <td class="user-file-remove">
+                        <span ng-click="removeFile(item)" class="icon ion-ios-close-outline remove-file"></span>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <h3 id="user-file-instructions">Drag and Drop or Click to Upload files</h3>
+              </div>
+            </div>
+          </div>
           </div>
         </div>
       </div>
-      <div class="col-md-8">
-        <button id="initProcess" class="btn btn-lg" ng-click="initProcess()">Start</button>
-        <div id="accordian-menu">
-          <accordion close-others="true">
-            <accordion-group heading="1. Documents" is-open="status.firstOpen"  ng-click="prepareEnvelopeDocuments()">
-              This content is straight in the template.
-            </accordion-group>
-            <accordion-group heading="2. Address" is-open="status.secondOpen" ng-click="prepareEnvelopeAddress()">
-              This content is straight in the template.
-            </accordion-group>
-            <accordion-group heading="3. Payment" is-open="status.thirdOpen" ng-click="preparePayment()">
-              <button class="btn btn-success" ng-click="uploadToS3()">Upload</button>
-              <button class="btn btn-default" ng-click="stripeCheckout()">Purchase</button>
-            </accordion-group>
-          </accordion>
+      <!-- end of: Envelope -->
+
+      <div id="steps">
+        <div class="step-container">
+          your content
+        </div>
+        <div class="step-container">
+          your content
+        </div>
+        <div class="step-container">
+          your content
         </div>
       </div>
+
     </div>
-  </div>
+  </section>
+
+  <section id="instructions">
+    <div class="container">
+      <button id="initProcess" class="btn btn-lg" ng-click="initProcess()">Start</button>
+      <div id="accordian-menu">
+        <accordion close-others="true">
+          <accordion-group heading="1. Documents" is-open="status.firstOpen"  ng-click="prepareEnvelopeDocuments()">
+            This content is straight in the template.
+          </accordion-group>
+          <accordion-group heading="2. Address" is-open="status.secondOpen" ng-click="prepareEnvelopeAddress()">
+            This content is straight in the template.
+          </accordion-group>
+          <accordion-group heading="3. Payment" is-open="status.thirdOpen" ng-click="preparePayment()">
+            <button class="btn btn-success" ng-click="uploadToS3()">Upload</button>
+            <button class="btn btn-default" ng-click="stripeCheckout()">Purchase</button>
+          </accordion-group>
+        </accordion>
+      </div>
+    </div>
+  </section>
+</div>
 <!-- </header> -->
 
 <!--   <div class="container">
@@ -228,4 +257,10 @@
   <div class="container">
       <p>eSnail &copy; 2015</p>
   </div>
-</footer>
+</footer> -->
+
+<!-- <div id="footer">
+  <ul class="copyright">
+    <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+  </ul>
+</div> -->
