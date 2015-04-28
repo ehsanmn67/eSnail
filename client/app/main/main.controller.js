@@ -134,7 +134,7 @@ angular.module('eSnailApp')
 
         $scope.scrollTo = function(id) {
             $('html, body').animate({
-                scrollTop: $('#' + id).offset().top
+                scrollTop: $('#' + id).offset().top - 100
             }, 'slow');
         };
 
