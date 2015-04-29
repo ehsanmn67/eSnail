@@ -93,33 +93,71 @@
     text-align: center;
 }
 
-// #mail {
-//     position: absolute;
-//     margin-top: -50px;
-// }
+#how {
+    .container {
 
-#accordian-menu {
-    // position: absolute;
-    right: 0;
-    left: 50%;
-    // margin-top: 285px;
-    // margin-left: -60px;
-    // width: 70%;
-    color: black;
+        .instruction-container {
+            height: 100%;
+            padding: 100px;
+            text-align: center;
+            padding-top: 0px;
 
-    .panel {
-
-        .panel-heading {
-            background: rgba(255, 255, 255, 0.3);
-            cursor: pointer;
-
-            .panel-title {
-                font-size: 25px;
+            .instruction-header h1 {
+                font-size: 90px;
+                font-family: 'Oswald';
+                text-transform: uppercase;
             }
-        }
 
-        .accordion-toggle {
-            text-decoration: none !important;
+            .instruction-body {
+                margin-top: 50px;
+
+                .instruction-single-container {
+                    height: 400px;
+                    margin: 10px;
+                    background: rgb(205, 194, 167);
+                    border-radius: 50px; 
+
+                    .instruction-single-icon {
+                        position: absolute;
+                        left: 50%;
+                        margin-top: -45px;
+                        margin-left: -50px;
+                        width: 100px;
+                        background: rgb(217, 128, 59);
+                        border-radius: 100px;
+
+                        i {
+                            position: relative;
+                            display: inline;
+                            margin: 0 auto;
+                            font-size: 70px;
+                        }
+                    }
+
+                    .instruction-single-content {
+                        padding-top: 50px;
+
+                        .instruction-single-header {
+                            padding: 0px 10px;
+
+                            h3 {
+                                font-size: 30px;
+                                font-family: 'Oswald';
+                            }
+                        }
+
+                        .instruction-single-body {
+                            padding: 0px 20px;
+                            margin-top: 25px;
+
+                            p {
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+            
         }
     }
 }
