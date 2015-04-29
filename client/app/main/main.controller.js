@@ -82,6 +82,24 @@ angular.module('eSnailApp')
         //         $(this).stop().fadeOut();
         //     });
 
+        $(document).on('scroll', onScroll);
+
+        function onScroll (e){
+            var scrollPos = $(document).scrollTop() + 100;
+            $('.navbar-nav a').each(function () {
+                var currLink = $(this);
+                var refElement = $(currLink.data('ref'));
+                if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() + 100 > scrollPos) {
+                    $('.navbar-nav li a').removeClass('active');
+                    currLink.addClass('active');
+                }
+                else{
+                    currLink.removeClass('active');
+                }
+            });
+        }
+
+
         $('input').focus(function(){
            $(this).data('placeholder', $(this).attr('placeholder'));
            $(this).attr('placeholder', '');
@@ -110,9 +128,9 @@ angular.module('eSnailApp')
         });
 
         $scope.scrollTo = function(id) {
-            $('html, body').animate({
+            $('html, body').stop().animate({
                 scrollTop: $('#' + id).offset().top - 100
-            }, 'slow');
+            }, 500, 'swing');
         };
 
         function prepareEnvelopeDocuments() {
@@ -134,7 +152,7 @@ angular.module('eSnailApp')
             infinite: false
         });
 
-        $('#steps').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+        $('#steps').on('beforeChange', function (e, slick, currentSlide, nextSlide){
 
             switch( nextSlide ) {
                 case 0:
