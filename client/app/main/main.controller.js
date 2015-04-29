@@ -84,6 +84,16 @@ angular.module('eSnailApp')
 
         $(document).on('scroll', onScroll);
 
+        $(window).on('scroll', function() {
+            var windowScroll = $(window).scrollTop();
+
+            if ( windowScroll >= 1 ) {
+                $('.navbar').addClass('scrolling');
+            } else {
+                $('.navbar').removeClass('scrolling');
+            }
+        })
+
         function onScroll (e){
             var scrollPos = $(document).scrollTop() + 100;
             $('.navbar-nav a').each(function () {
