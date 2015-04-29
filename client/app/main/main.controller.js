@@ -14,25 +14,6 @@ angular.module('eSnailApp')
 
         var totalCost = 349;
 
-        var placeholders = [
-            {
-                className: 'name-input',
-                displayName: 'Full Name'
-            },
-            {
-                className: 'street-input',
-                displayName: 'Street'
-            },
-            {
-                className: 'city-input',
-                displayName: 'City'
-            },
-            {
-                className: 'zip-input',
-                displayName: 'Zip Code'
-            }
-        ];
-
         function formatEnvelope() {
             /* Hide input styles */
             $('.address-form-control').addClass('hide-appearance');
@@ -41,10 +22,11 @@ angular.module('eSnailApp')
             $('.address-header').css('opacity', 0);
 
             /* Disable inputs */
-            $('.address-form-control')
-                .attr('placeholder', '')
-                .attr('disabled', true);
-            $('.state-address').attr('disabled', true);
+            $('.address-form-control').each(function() {
+                $(this).data('placeholder', $(this).attr('placeholder'));
+                $(this).attr('placeholder', '');
+                $('.state-address').attr('disabled', true);
+            });
 
             /* Remove handlers from stamp container */
             $('.stamp-placeholder').unbind('mouseenter');
@@ -61,13 +43,10 @@ angular.module('eSnailApp')
 
             /* Enable inputs */
             $('.address-form-control').each(function() {
-                for (var i = 0; i < placeholders.length; i++) {
-                    if ( $(this).hasClass( placeholders[i].className ) ) {
-                        $(this).attr('placeholder', placeholders[i].displayName);
-                    }
-                }
+                $(this).attr('placeholder', $(this).data('placeholder'));
                 $(this).attr('disabled', false);
             });
+
             $('.state-address').attr('disabled', false);
             $('#user-name').focus();
 
@@ -86,7 +65,7 @@ angular.module('eSnailApp')
         function hideStampOptions(e) {
             $('.stamp-options-container').stop().fadeOut();
         }
-        
+
         /* jQuery Handlers */
 
         /* TEMP */
@@ -103,6 +82,14 @@ angular.module('eSnailApp')
         //         $(this).stop().fadeOut();
         //     });
 
+        $('input').focus(function(){
+           $(this).data('placeholder', $(this).attr('placeholder'));
+           $(this).attr('placeholder', '');
+        });
+
+        $('input').blur(function(){
+           $(this).attr('placeholder', $(this).data('placeholder'));
+        });
 
         $('#stamp-container').on('click', '.stamp-image', function() {
             var type = $(this).attr('data-type');
@@ -122,53 +109,24 @@ angular.module('eSnailApp')
             totalCost += ( pageData.length * 39 );
         });
 
-        // $scope.status = {
-            // firstOpen: false,
-            // secondOpen: false,
-            // thirdOpen: false
-        // };
-
         $scope.scrollTo = function(id) {
             $('html, body').animate({
                 scrollTop: $('#' + id).offset().top - 100
             }, 'slow');
         };
 
-        $scope.initProcess = function() {
-            // $scope.status.firstOpen = true;
-
-            // $('.envelope').addClass('open');
-            $('.envelope .top').addClass('open');
-            $('.envelope .paper').addClass('open');
-        };
-
         function prepareEnvelopeDocuments() {
-            // $scope.status.firstOpen = true;
-
             $('.flipper').removeClass('flip');
-            // $('.envelope').addClass('open');
-            // $('.envelope .top').addClass('open');
-            // $('.envelope .paper').addClass('open');
         };
 
         function prepareEnvelopeAddress() {
-            // $scope.status.secondOpen = true;
-
             $('.flipper').addClass('flip');
             parseEnvelope();
-            // $('.envelope').removeClass('open');
-            // $('.envelope .top').removeClass('open');
-            // $('.envelope .paper').removeClass('open');
         };
 
         function preparePayment() {
-            // $scope.status.thirdOpen = true;
-
             $('.flipper').addClass('flip');
             formatEnvelope();
-            // $('.envelope').removeClass('open');
-            // $('.envelope .top').removeClass('open');
-            // $('.envelope .paper').removeClass('open');
         };
 
         $('#steps').slick({
