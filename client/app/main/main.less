@@ -185,7 +185,7 @@
     padding: 0;
     font-size: 1em;
     font-weight: 300;
-    text-align: center;
+    // text-align: center;
     line-height: normal;
     vertical-align: baseline;
     color: #FFF;
@@ -264,6 +264,10 @@
     }
 }
 
+#from-form-container, #to-form-container {
+    text-align: left;
+}
+
 #stamp-container {
     position: absolute;
     top: 10px;
@@ -273,7 +277,7 @@
         width: 100px;
         height: 100px;
         background: transparent;
-        cursor: pointer;
+        // cursor: pointer;
 
         .stamp-selected-image {
             position: absolute;
@@ -612,10 +616,8 @@
 }
 
 .flip-container, .front, .back {
-    // margin-top: 140px;
     margin: 0 auto;
     margin-top: 15px;
-    // margin-top: -10px;
     width: 165*4px;
     height: 93*4px;
 }
@@ -662,160 +664,160 @@
 // }
 
 .contact {
-        position: absolute;
-        height: 93*4px;
-        width: 165*4px;
-        background: rgba(0, 0, 0, 0.1);
-        
-        border-radius: 2*4px;
-        -ms-border-radius: 2*4px;
-        -moz-border-radius: 2*4px;
-        -o-border-radius: 2*4px;
-        -webkit-border-radius: 2*4px;
+    position: absolute;
+    height: 93*4px;
+    width: 165*4px;
+    background: rgba(0, 0, 0, 0.1);
+    
+    border-radius: 2*4px;
+    -ms-border-radius: 2*4px;
+    -moz-border-radius: 2*4px;
+    -o-border-radius: 2*4px;
+    -webkit-border-radius: 2*4px;
 }
 .contact .envelope {
-        position: absolute;
-        height: 93*4px;
-        width: 165*4px;
-        left: 50%;
-        margin-left: -82.5*4px;
-        top: 50%;
-        margin-top: -46.5*4px;
-        background: #F9F9F9;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        
-        transition: margin-top 300ms;
-        -ms-transition: margin-top 300ms;
-        -moz-transition: margin-top 300ms;
-        -o-transition: margin-top 300ms;
-        -webkit-transition: margin-top 300ms;
+    position: absolute;
+    height: 93*4px;
+    width: 165*4px;
+    left: 50%;
+    margin-left: -82.5*4px;
+    top: 50%;
+    margin-top: -46.5*4px;
+    background: #F9F9F9;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+    transition: margin-top 300ms;
+    -ms-transition: margin-top 300ms;
+    -moz-transition: margin-top 300ms;
+    -o-transition: margin-top 300ms;
+    -webkit-transition: margin-top 300ms;
 }
 /* Removed .contact:hover */
 .envelope.open {
-        margin-top: -20*4px;
+    margin-top: -20*4px;
 
-        transition-delay: 150ms;
-        -ms-transition-delay: 150ms;
-        -moz-transition-delay: 150ms;
-        -o-transition-delay: 150ms;
+    transition-delay: 150ms;
+    -ms-transition-delay: 150ms;
+    -moz-transition-delay: 150ms;
+    -o-transition-delay: 150ms;
 }
 .contact .envelope .top {
-        position: absolute;
-        top: -11px;
-        left: 0px;
-        width: 100%;
-        height: 73*4px;
-        z-index: 100;
-        // z-index: 0;
-        overflow: hidden;
-                        
-        transform-origin: top;
-        -ms-transform-origin: top;
-        -moz-transform-origin: top;
-        -o-transform-origin: top;
-        -webkit-transform-origin: top;
+    position: absolute;
+    top: -11px;
+    left: 0px;
+    width: 100%;
+    height: 73*4px;
+    z-index: 100;
+    // z-index: 0;
+    overflow: hidden;
                     
-        transition: transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
-        -ms-transition: -ms-transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
-        -moz-transition: -moz-transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
-        -o-transition: -o-transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
-        -webkit-transition: -webkit-transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
+    transform-origin: top;
+    -ms-transform-origin: top;
+    -moz-transform-origin: top;
+    -o-transform-origin: top;
+    -webkit-transform-origin: top;
+                
+    transition: transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
+    -ms-transition: -ms-transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
+    -moz-transition: -moz-transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
+    -o-transition: -o-transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
+    -webkit-transition: -webkit-transform 300ms 150ms, z-index 0ms 150ms, height 300ms 0ms, top 300ms 0ms;
 }
 /* Removed .contact:hover */
 .envelope .top.open {
-        transition: transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
-        -ms-transition: -ms-transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
-        -moz-transition: -moz-transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
-        -o-transition: -o-transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
-        -webkit-transition: -webkit-transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
-        
-        height: 10*4px;
-        top: -60*4px;
-        z-index: 0;
+    transition: transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
+    -ms-transition: -ms-transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
+    -moz-transition: -moz-transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
+    -o-transition: -o-transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
+    -webkit-transition: -webkit-transform 300ms 0ms, height 300ms 150ms, top 300ms 150ms;
+    
+    height: 10*4px;
+    top: -60*4px;
+    z-index: 0;
 
-        transform: rotateX(180deg);
-        -ms-transform: rotateX(180deg);
-        -moz-transform: rotateX(180deg);
-        -o-transform: rotateX(180deg);
-        -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    -o-transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
 }
 .contact .envelope .outer {
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-        border-left: 83*4px solid transparent;
-        border-right: 82*4px solid transparent;
-        border-top: 70*4px solid #EEE;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    border-left: 83*4px solid transparent;
+    border-right: 82*4px solid transparent;
+    border-top: 70*4px solid #EEE;
 }
 .contact .envelope .outer .inner {
-        position: absolute;
-        left: -81*4px;
-        top: -281px;
-        // top: -73*4px;
-        border-left: 81*4px solid transparent;
-        border-right: 80*4px solid transparent;
-        border-top: 68*4px solid #333;
+    position: absolute;
+    left: -81*4px;
+    top: -281px;
+    // top: -73*4px;
+    border-left: 81*4px solid transparent;
+    border-right: 80*4px solid transparent;
+    border-top: 68*4px solid #333;
 }
 .contact .envelope .bottom {
-        position: absolute;
-        z-index: 20;
-        bottom: 0*4px;
-        left: 2*4px;
-        border-left: 81*4px solid transparent;
-        border-right: 80*4px solid transparent;
-        border-bottom: 45*4px solid #333;
+    position: absolute;
+    z-index: 20;
+    bottom: 0*4px;
+    left: 2*4px;
+    border-left: 81*4px solid transparent;
+    border-right: 80*4px solid transparent;
+    border-bottom: 45*4px solid #333;
 }
 .contact .envelope .left {
-        position: absolute;
-        z-index: 20; top: 0*4px;
-        left: 0px;
-        border-left: 81*4px solid #333;
-        border-top: 45*4px solid transparent;
-        border-bottom: 45*4px solid transparent;
+    position: absolute;
+    z-index: 20; top: 0*4px;
+    left: 0px;
+    border-left: 81*4px solid #333;
+    border-top: 45*4px solid transparent;
+    border-bottom: 45*4px solid transparent;
 }
 .contact .envelope .right {
-        position: absolute;
-        z-index: 20;
-        top: 0*4px;
-        right: 0*4px;
-        border-right: 80*4px solid #333;
-        border-top: 45*4px solid transparent;
-        border-bottom: 45*4px solid transparent;
+    position: absolute;
+    z-index: 20;
+    top: 0*4px;
+    right: 0*4px;
+    border-right: 80*4px solid #333;
+    border-top: 45*4px solid transparent;
+    border-bottom: 45*4px solid transparent;
 }
 .contact .envelope .cover {
-        position: absolute;
-        z-index: 15;
-        bottom: 0px;
-        left: 0px;
-        height: 55%;
-        width: 100%;
-        background: #EEE;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+    position: absolute;
+    z-index: 15;
+    bottom: 0px;
+    left: 0px;
+    height: 55%;
+    width: 100%;
+    background: #EEE;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 .contact .envelope .paper {
-        position: absolute;
-        height: 83*4px;
-        width: 100%;
-        top: 0px;
-        left: 0px;
-        background: #F9F9F9;
-        z-index: 10;
-        transition: margin-top 300ms 0ms;
-        -ms-transition: margin-top 300ms 0ms;
-        -moz-transition: margin-top 300ms 0ms;
-        -o-transition: margin-top 300ms 0ms;
-        -webkit-transition: margin-top 300ms 0ms;
+    position: absolute;
+    height: 83*4px;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background: #F9F9F9;
+    z-index: 10;
+    transition: margin-top 300ms 0ms;
+    -ms-transition: margin-top 300ms 0ms;
+    -moz-transition: margin-top 300ms 0ms;
+    -o-transition: margin-top 300ms 0ms;
+    -webkit-transition: margin-top 300ms 0ms;
 }
 /* Removed .contact:hover */
 .envelope .paper.open {
-        margin-top: -60*4px;
-        transition: margin-top 300ms 150ms;
-        -ms-transition: margin-top 300ms 150ms;
-        -moz-transition: margin-top 300ms 150ms;
-        -o-transition: margin-top 300ms 150ms;
-        -webkit-transition: margin-top 300ms 150ms;
+    margin-top: -60*4px;
+    transition: margin-top 300ms 150ms;
+    -ms-transition: margin-top 300ms 150ms;
+    -moz-transition: margin-top 300ms 150ms;
+    -o-transition: margin-top 300ms 150ms;
+    -webkit-transition: margin-top 300ms 150ms;
 }
 
 

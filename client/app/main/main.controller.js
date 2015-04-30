@@ -29,9 +29,9 @@ angular.module('eSnailApp')
             });
 
             /* Remove handlers from stamp container */
-            $('.stamp-placeholder').unbind('mouseenter');
-            $('.stamp-placeholder').unbind('mouseleave');
-            $('.stamp-placeholder').css('cursor', 'auto');
+            // $('.stamp-placeholder').unbind('mouseenter');
+            // $('.stamp-placeholder').unbind('mouseleave');
+            // $('.stamp-placeholder').css('cursor', 'auto');
         }
 
         function parseEnvelope() {
@@ -55,7 +55,7 @@ angular.module('eSnailApp')
             // $('.stamp-placeholder')
             //     .bind('mouseenter', showStampOptions)
             //     .bind('mouseleave', hideStampOptions);
-            $('.stamp-placeholder').css('cursor', 'pointer');
+            // $('.stamp-placeholder').css('cursor', 'pointer');
         }
 
         function showStampOptions(e) {
@@ -84,17 +84,23 @@ angular.module('eSnailApp')
 
         $(document).on('scroll', onScroll);
 
-        $(window).on('scroll', function() {
-            var windowScroll = $(window).scrollTop();
+        var documentScroll = $(document).scrollTop();
 
-            if ( windowScroll >= 1 ) {
+        if ( documentScroll >= 1 ) {
+            $('.navbar').addClass('scrolling');
+        } else {
+            $('.navbar').removeClass('scrolling');
+        }
+
+        function onScroll (e){
+            var documentScroll = $(document).scrollTop();
+
+            if ( documentScroll >= 1 ) {
                 $('.navbar').addClass('scrolling');
             } else {
                 $('.navbar').removeClass('scrolling');
             }
-        })
 
-        function onScroll (e){
             var scrollPos = $(document).scrollTop() + 100;
             $('.navbar-nav a').each(function () {
                 var currLink = $(this);
@@ -119,14 +125,14 @@ angular.module('eSnailApp')
            $(this).attr('placeholder', $(this).data('placeholder'));
         });
 
-        $('#stamp-container').on('click', '.stamp-image', function() {
-            var type = $(this).attr('data-type');
+        // $('#stamp-container').on('click', '.stamp-image', function() {
+        //     var type = $(this).attr('data-type');
 
-            $('.stamp-options-container').stop().fadeOut();
-            $('.stamp-placeholder-text').html('');
-            $('.stamp-selected-image').attr('src', '/assets/images/ironman_stamp.png');
-            $('.stamp-selected-image').attr('data-type', type);
-        });
+        //     $('.stamp-options-container').stop().fadeOut();
+        //     $('.stamp-placeholder-text').html('');
+        //     $('.stamp-selected-image').attr('src', '/assets/images/ironman_stamp.png');
+        //     $('.stamp-selected-image').attr('data-type', type);
+        // });
 
         $(window).on('popstate', function() {
             handler.close();
