@@ -165,6 +165,32 @@ angular.module('eSnailApp')
             formatEnvelope();
         };
 
+        $('.address-form-control').on('keydown', function (e) {
+
+            var currentInput = $(this).data('index'),
+                nextInput;
+
+            if ( e.shiftKey && e.keyCode == 9 ) {
+                e.preventDefault();
+                nextInput = currentInput - 1;      
+            } else if ( e.keyCode == 9 ) {
+                e.preventDefault();
+                nextInput = currentInput + 1;
+            }
+
+            if ( nextInput < 1 ) {
+                nextInput = 1;
+            } else if ( nextInput > 12 ) {
+                nextInput = 12;
+            }
+
+            console.log(currentInput, nextInput);
+
+            $('#mail')
+                .find("[data-index='" + nextInput + "']")
+                .focus();
+        });
+
         $('#steps').slick({
             dots: true,
             infinite: false
@@ -199,6 +225,20 @@ angular.module('eSnailApp')
                 description: '2 widgets',
                 amount: totalCost
             });
+        });
+
+        $scope.$on('address_changed', function (e, newAddress) {
+            $scope.toAddress.steet = newAddress.streetAddress1;
+            $scope.toAddress.city  = newAddress.city;
+            $scope.toAddress.state = newAddress.state;
+            $scope.toAddress.zip   = newAddress.postalCode;
+        });
+
+        $scope.$on('from_address_changed', function (e, newAddress) {
+            $scope.fromAddress.steet = newAddress.streetAddress1;
+            $scope.fromAddress.city  = newAddress.city;
+            $scope.fromAddress.state = newAddress.state;
+            $scope.fromAddress.zip   = newAddress.postalCode;
         });
 
         $scope.stripeCheckout = function() {

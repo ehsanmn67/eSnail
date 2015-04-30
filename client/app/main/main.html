@@ -5,9 +5,9 @@
   <!-- <div class="container"> -->
     <img id="cover-logo" src="/assets/images/logo.png">
     <h2 id="cover-tagline">I use ensail because... I don't keep stamps at home!</h2>
-    <div class="brand-button" ng-click="scrollTo('how')">
+<!--     <div class="brand-button" ng-click="scrollTo('how')">
       Get Started
-    </div>
+    </div> -->
   <!-- </div> -->
 </section>
 
@@ -115,11 +115,11 @@
             <div id="from-form-container">
               <h4 class="address-header">FROM</h4>
               <form id="from-form">
-                <input type="text" name="fromName" id="user-name" class="address-form-control name-input" placeholder="Full Name" />
-                <input type="text" name="fromCompany" class="address-form-control company-input" placeholder="Company ( optional )" />
-                <input type="text" name="fromStreet" class="address-form-control street-input" placeholder="Street Address" />
-                <input type="text" name="fromCity" class="address-form-control inline-address city-address city-input" placeholder="City" />
-                <select name="fromState" class="address-form-control inline-address state-address">
+                <input ng-model="toAddress.name" type="text" name="fromName" id="user-name" class="address-form-control name-input" placeholder="Full Name" data-index="1" />
+                <input ng-model="toAddress.company" type="text" name="fromCompany" class="address-form-control company-input" placeholder="Company ( optional )" data-index="2" />
+                <input ng-model="toAddress.street" type="text" name="fromStreet" class="address-form-control street-input" placeholder="Street Address" google-autocomplete options='{ types: "geocode", country: "us" }' data-index="3" />
+                <input ng-model="toAddress.city" type="text" name="fromCity" class="address-form-control inline-address city-address city-input" placeholder="City" data-index="4" />
+                <select ng-model="toAddress.state" name="fromState" class="address-form-control inline-address state-address" data-index="5">
                   <option value="">CA</option>
                   <option value="AL">AL</option>
                   <option value="AK">AK</option>
@@ -173,17 +173,17 @@
                   <option value="WI">WI</option>
                   <option value="WY">WY</option>
                 </select>
-                <input type="text" name="fromZip" class="address-form-control inline-address zip-address zip-input" placeholder="Zip" />
+                <input ng-model="toAddress.zip" type="text" name="fromZip" class="address-form-control inline-address zip-address zip-input" placeholder="Zip" data-index="6" />
               </form>
             </div>
             <div id="to-form-container">
               <h4 class="address-header">TO</h4>
               <form id="to-form">
-                <input type="text" name="toName" id="user-name" class="address-form-control name-input" placeholder="Full Name" />
-                <input type="text" name="toCompany" class="address-form-control company-input" placeholder="Company ( optional )" />
-                <input type="text" name="toStreet" class="address-form-control street-input" placeholder="Street Address" />
-                <input type="text" name="toCity" class="address-form-control inline-address city-address city-input" placeholder="City" />
-                <select name="toState" class="address-form-control inline-address state-address">
+                <input ng-model="fromAddress.name" type="text" name="toName" id="user-name" class="address-form-control name-input" placeholder="Full Name" data-index="7" />
+                <input ng-model="fromAddress.company" type="text" name="toCompany" class="address-form-control company-input" placeholder="Company ( optional )" data-index="8" />
+                <input ng-model="fromAddress.street" type="text" name="toStreet" class="address-form-control street-input" placeholder="Street Address" data-index="9" />
+                <input ng-model="fromAddress.city" type="text" name="toCity" class="address-form-control inline-address city-address city-input" placeholder="City" data-index="10" />
+                <select ng-model="fromAddress.state" name="toState" class="address-form-control inline-address state-address" data-index="11" >
                   <option value="">CA</option>
                   <option value="AL">AL</option>
                   <option value="AK">AK</option>
@@ -237,7 +237,7 @@
                   <option value="WI">WI</option>
                   <option value="WY">WY</option>
                 </select>
-                <input type="text" name="toZip" class="address-form-control inline-address zip-address zip-input" placeholder="Zip" />
+                <input ng-model="fromAddress.zip" type="text" name="toZip" class="address-form-control inline-address zip-address zip-input" placeholder="Zip" data-index="12" />
               </form>
             </div>
           </div>

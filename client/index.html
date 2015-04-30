@@ -24,6 +24,7 @@
       <!-- endinjector -->
     <!-- endbuild -->
     <script src="https://checkout.stripe.com/checkout.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
   </head>
   <body ng-app="eSnailApp" ng-controller="AppController" nv-file-drop="" uploader="uploader">
     <!--[if lt IE 7]>
@@ -61,6 +62,7 @@
       <script src="bower_components/angular-file-upload/angular-file-upload.js"></script>
       <script src="bower_components/skel/src/skel.js"></script>
       <script src="bower_components/scrolly/public/js/scrolly.js"></script>
+      <script src="bower_components/ngAutocomplete/src/ngAutocomplete.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
 
@@ -79,6 +81,7 @@
           <script src="components/auth/auth.service.js"></script>
           <script src="components/auth/user.service.js"></script>
           <script src="components/file/formatFileName.filter.js"></script>
+          <script src="components/googleAutocomplete/googleAutocomplete.directive.js"></script>
           <script src="components/imagePreview/imagePreview.directive.js"></script>
           <script src="components/modal/modal.service.js"></script>
           <script src="components/mongoose-error/mongoose-error.directive.js"></script>
