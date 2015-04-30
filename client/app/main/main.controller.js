@@ -25,8 +25,10 @@ angular.module('eSnailApp')
             $('.address-form-control').each(function() {
                 $(this).data('placeholder', $(this).attr('placeholder'));
                 $(this).attr('placeholder', '');
-                $('.state-address').attr('disabled', true);
+                $(this).attr('disabled', true);
             });
+
+            $('.state-address').attr('disabled', true);
 
             /* Remove handlers from stamp container */
             // $('.stamp-placeholder').unbind('mouseenter');
