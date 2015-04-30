@@ -227,18 +227,18 @@ angular.module('eSnailApp')
             });
         });
 
-        $scope.$on('address_changed', function (e, newAddress) {
-            $scope.toAddress.steet = newAddress.streetAddress1;
-            $scope.toAddress.city  = newAddress.city;
-            $scope.toAddress.state = newAddress.state;
-            $scope.toAddress.zip   = newAddress.postalCode;
-        });
-
         $scope.$on('from_address_changed', function (e, newAddress) {
             $scope.fromAddress.steet = newAddress.streetAddress1;
             $scope.fromAddress.city  = newAddress.city;
             $scope.fromAddress.state = newAddress.state;
             $scope.fromAddress.zip   = newAddress.postalCode;
+        });
+
+        $scope.$on('to_address_changed', function (e, newAddress) {
+            $scope.toAddress.steet = newAddress.streetAddress1;
+            $scope.toAddress.city  = newAddress.city;
+            $scope.toAddress.state = newAddress.state;
+            $scope.toAddress.zip   = newAddress.postalCode;
         });
 
         $scope.stripeCheckout = function() {

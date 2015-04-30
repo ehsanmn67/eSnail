@@ -62,24 +62,30 @@ angular.module('eSnailApp')
                                 oldVal,
                                 newVal;
 
-                            console.log(isCityRequest);
+                            var type = attrs.autocompletetype;
 
                             if (isCityRequest) {
                                 scope.$emit('city_changed', parsedAddress);
                                 oldVal = controller.$modelValue;
-                            } else {
-                                scope.$emit('address_changed', parsedAddress);
+                            } else if ( type == 'from' ) {
+                                scope.$emit('from_address_changed', parsedAddress);
+                                element.val(parsedAddress.streetAddress1);
+                                oldVal = parsedAddress.streetAddress1;
+                            } else if ( type == 'to' ) {
+                                scope.$emit('to_address_changed', parsedAddress);
                                 element.val(parsedAddress.streetAddress1);
                                 oldVal = parsedAddress.streetAddress1;
                             }
 
                             element.bind('blur', function(e) {
-                                newVal = controller.$modelValue;
-                                if (oldVal != newVal) {
-                                    element.val(newVal);
-                                } else {
-                                    element.val(oldVal);
-                                }
+                                element.val(parsedAddress.streetAddress1);
+                                // TEMP
+                                // newVal = controller.$modelValue;
+                                // if (oldVal != newVal) {
+                                    // element.val(newVal);
+                                // } else {
+                                    // element.val(oldVal);
+                                // }
                                 element.unbind('blur');
                             });
                         });
@@ -123,22 +129,30 @@ angular.module('eSnailApp')
 
                                                 scope.details = detailsResult;
                                                 var parsedAddress = parseAddressComponents(detailsResult.address_components);
-                                                console.log(detailsResult);
+
+                                                var type = attrs.autocompletetype;
 
                                                 if (scope.options.types === '(cities)') {
                                                     scope.$emit('city_changed', parsedAddress);
-                                                } else {
-                                                    scope.$emit('address_changed', parsedAddress);
+                                                } else if ( type == 'from' ) {
+                                                    scope.$emit('from_address_changed', parsedAddress);
+                                                    /* New */
+                                                    element.val(parsedAddress.streetAddress1);
+                                                } else if ( type == 'to' ) {
+                                                    scope.$emit('to_address_changed', parsedAddress);
+                                                    /* New */
+                                                    element.val(parsedAddress.streetAddress1);
                                                 }
                                                 // controller.$setViewValue(parsedAddress.streetAddress1);
                                                 // controller.$setViewValue(detailsResult.formatted_address);
                                                 // element.val(controller.$modelValue);
 
                                                 //on focusout the value reverts, need to set it again.
-                                                var watchFocusOut = element.on('blur', function(event) {
-                                                    element.val(controller.$modelValue);
+                                                // var watchFocusOut = element.on('blur', function(event) {
+                                                var watchFocusOut = element.bind('blur', function(event) {
+                                                    element.val(parsedAddress.streetAddress1);
+                                                    // element.val(controller.$modelValue);
                                                     // element.val(parsedAddress.streetAddress1);
-                                                    // element.val(detailsResult.formatted_address);
                                                     element.unbind('blur');
                                                 });
 
